@@ -122,14 +122,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-# Activate Django-Heroku.
-try:
-    
-    import django_heroku
-    django_heroku.settings(locals())
-except:
-    pass
 AUTHENTICATION_BACKENDS = (
  'django.contrib.auth.backends.ModelBackend',
  'allauth.account.auth_backends.AuthenticationBackend',
@@ -148,3 +140,12 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+STATIC_URL = '/static/'
+# Activate Django-Heroku.
+try:
+    
+    import django_heroku
+    django_heroku.settings(locals())
+except:
+    pass
