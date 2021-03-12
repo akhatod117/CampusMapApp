@@ -1,7 +1,9 @@
 asgiref==3.3.1
 Django==3.1.7
+dj-database-url==0.5.0
 pytz==2021.1
 sqlparse==0.4.1
 gunicorn
 django-heroku
 django-allauth
+whitenoise==5.2.0

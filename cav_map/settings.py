@@ -24,7 +24,7 @@ SECRET_KEY = '@f2&r1*2m^u!k^+&h%w&vmj9k&%4#@9_z+%s!7s2nd+5ar0v-!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['a01-cav-map.herokuapp.com']
 
 
 # Application definition
@@ -140,7 +140,9 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 STATIC_URL = '/static/'
 # Activate Django-Heroku.
 try:
