@@ -7,4 +7,4 @@ gunicorn
 django-heroku
 django-allauth
 whitenoise==5.2.0
-install dj-database-url
+
