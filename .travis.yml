@@ -8,7 +8,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: 
+    secure: pbCYBNO4cC/pL59vBnIjJQ2aw5HxagOOz9u499wizqnk/k8UP71Q/jrZ87ZK4PUoKTiSUwQbepEdz88PXe+gYJzVR+Cq6SkGG91UVtZn4hV1QpQ1TroTDzkarK+eC7FNrBbQMbi9FjlaXOqwux6dQG26bPXMHlbpM8yVH84TU7aCjh7b96aURpBx2PsV2wC8nRhnOQBNdgJJ2k69ZIl2VcfzKqLQH/oM232ibG7+0qwgZRF7301lFb5EFlQ+lngaxF/ZkzUNAQYyUZjFF+BwTGlCwf27eaBxxNc9MyILigxT9qOgAFC0cJ5k4WIDUOLhjw+yCd2SMesJs1dzW8x51hleKvfQJ7oIOlhrrQfjO8dZdbUl7WlM28x394/pmHFmqtBO6AylsVdhS6XniXT+RJyOt0Wbqn7j6plpTVy6rmudgv4zcUA8uJy17PgVsMRWcRd7/RszYXktVo61AgGjhYKPyz8Y9Veueu4GomevE2WDSwUEMWpfQz2wbHg1ap7d+6k08InXIpT2vh9Ob/hnpkGR2ZB+XZiM/9K0DdblYAEA5CIJ1ScKlUpe24pYn7a8x0m5Pd5ERmGxUd4iGlnd7xONp2xU3kOAfWThfA95TtO4lpj+INsJpb/stWAwcKFNqxanoHgb73fGC9O6iaqOFff0xs3gCJFpU8zhXCREW/w=
   app: a01-cav-map
   on:
     repo: uva-cs3240-s21/project-a-01
