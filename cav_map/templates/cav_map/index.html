@@ -7,10 +7,12 @@
   <h1>Google Login Test</h1>
   {% if user.is_authenticated %}
   <p>Welcome, {{ user.username }} !</p>
+  <a href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
  
   {% else %}
   <h1>Google Login Test</h1>
   <a href="{% provider_login_url 'google' %}">Login with Google</a>
+
   {% endif %}
 
   </body>
