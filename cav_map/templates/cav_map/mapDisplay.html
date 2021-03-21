@@ -1,9 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <iframe
-  width="650"
-  height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD35Y_moHwwrQHYv_u_9HZ_spFzr7eIbvQ&origin=Scott+Stadium, Charlottesville + Virginia&destination= Newcomb+Hall,Charlottesville+Virginia" allowfullscreen>
-</iframe>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <a class="navbar-brand" href="#">CavMap</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Account</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search for Something..." aria-label="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+  <p align="center">
+    <iframe
+      display="block"
+      width=650"
+      height="450"
+      title="Google Map Display"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD35Y_moHwwrQHYv_u_9HZ_spFzr7eIbvQ&origin=Scott+Stadium, Charlottesville + Virginia&destination= Newcomb+Hall,Charlottesville+Virginia" allowfullscreen
+      >
+    </iframe>
+  </p>
 </html>
