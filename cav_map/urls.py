@@ -21,4 +21,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name="cav_map/index.html")),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html")),
 ]
