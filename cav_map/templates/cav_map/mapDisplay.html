@@ -50,16 +50,18 @@ style: 'mapbox://styles/mapbox/streets-v11',
 center: [position.coords.longitude, position.coords.latitude],
 zoom: 13
 });
-var marker1 = new mapboxgl.Marker()
-.setLngLat([position.coords.longitude, position.coords.latitude])
-.addTo(map);
-map.addControl(
-new MapboxDirections({
-accessToken: mapboxgl.accessToken
-}),
-'top-left'
-);}
+var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+    });
+
+map.addControl(directions,'top-left');
+
+map.on('load',  function() {
+    directions.setOrigin([position.coords.longitude, position.coords.latitude]);  
+})}
 </script>
  
 </body>
 </html>
+
+<!-- https://stackoverflow.com/questions/59818596/how-to-set-origin-and-destination-with-mapbox-gl-directions -->
