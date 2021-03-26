@@ -89,22 +89,10 @@ map.on('load',  function() {
   </nav>
 </div>
   {% else %}
-  <style type="text/css">
-    .centerImage
-    {
-     text-align:center;
-     display:block;
-    }
-    </style>
-  <body style="background-color: hsl(240, 87%, 18%);"></body>
-  <center><img style="height: 25%; width: 15%; padding-top: 5%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
-  </br>
-  <h1 style="color: white; text-align:center;">CavMap</h1>
-</br>
-  <center><a href="{% provider_login_url 'google' %}"><img style="width: auto; height: 5%;" src="https://www.drupal.org/files/issues/2020-01-26/google_logo.png"></a></center>
+<script>
+  window.location.href("https://a01-cav-map.herokuapp.com/");
+</script>
 
-
-  {% endif %}
 </html>
 
 <!-- https://stackoverflow.com/questions/59818596/how-to-set-origin-and-destination-with-mapbox-gl-directions -->
