@@ -34,8 +34,21 @@
 </div>
  
   {% else %}
-  <h1>Google Login</h1>
-  <a href="{% provider_login_url 'google' %}">Login with Google</a>
+
+  <style type="text/css">
+    .centerImage
+    {
+     text-align:center;
+     display:block;
+    }
+    </style>
+  <body style="background-color: hsl(240, 87%, 18%);"></body>
+  <center><img style="height: 25%; width: 20%;" src="1200px-Virginia_Cavaliers_sabre.svg.png"></center>
+  </br>
+  <h1 style="color: white; text-align:center;">CavMapp</h1>
+</br>
+  <center><a href="{% provider_login_url 'google' %}"><img style="width: auto; height: 5%;" src="google_logo.png"></a></center>
+
 
   {% endif %}
 
