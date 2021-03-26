@@ -17,9 +17,10 @@
 
 <!DOCTYPE html>
 <html>
+{% if user.is_authenticated %}
 <head>
 <meta charset="utf-8">
-<title>Display driving directions</title>
+<title>Map</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
@@ -87,6 +88,11 @@ map.on('load',  function() {
   <nav class="navbar navbar-light justify-content-center" style ='background-color: #e3f2fd;'>
       <p class="text-center">Copyright 2021.  Author: Team A-01</p>
   </nav>
+  {% else %}
+  <h1>Google Login</h1>
+  <a href="{% provider_login_url 'google' %}">Login with Google</a>
+
+  {% endif %}
 </html>
 
 <!-- https://stackoverflow.com/questions/59818596/how-to-set-origin-and-destination-with-mapbox-gl-directions -->
