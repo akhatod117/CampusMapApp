@@ -4,20 +4,14 @@
     <title>Google Registration</title>
   </head>
   <body>
-  <h1>Google Login Test</h1>
   {% if user.is_authenticated %}
-  <p>Welcome, {{ user.username }} !</p>
+  <h1>Welcome, {{ user.username }} !</h1>
+  <a href="https://a01-cav-map.herokuapp.com/map/">View Your Map</a>
+  <br />
   <a href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
-
-  <iframe
-  width="650"
-  height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD35Y_moHwwrQHYv_u_9HZ_spFzr7eIbvQ&origin=Scott+Stadium, Charlottesville + Virginia&destination= Newcomb+Hall,Charlottesville+Virginia" allowfullscreen>
-</iframe>
  
   {% else %}
-  <h1>Google Login Test</h1>
+  <h1>Google Login</h1>
   <a href="{% provider_login_url 'google' %}">Login with Google</a>
 
   {% endif %}

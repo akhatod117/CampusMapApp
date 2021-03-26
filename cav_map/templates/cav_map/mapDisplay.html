@@ -25,10 +25,11 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
 <style>
 body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+#map { position: absolute; top: 25%; bottom: 25%; width: 50%; height: 50%; left: 25%; }
 </style>
 </head>
 <body>
+<a href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 <div id="map"></div>
@@ -50,16 +51,18 @@ style: 'mapbox://styles/mapbox/streets-v11',
 center: [position.coords.longitude, position.coords.latitude],
 zoom: 13
 });
-var marker1 = new mapboxgl.Marker()
-.setLngLat([position.coords.longitude, position.coords.latitude])
-.addTo(map);
-map.addControl(
-new MapboxDirections({
-accessToken: mapboxgl.accessToken
-}),
-'top-left'
-);}
+var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+    });
+
+map.addControl(directions,'top-left');
+
+map.on('load',  function() {
+    directions.setOrigin([position.coords.longitude, position.coords.latitude]);  
+})}
 </script>
  
 </body>
 </html>
+
+<!-- https://stackoverflow.com/questions/59818596/how-to-set-origin-and-destination-with-mapbox-gl-directions -->
