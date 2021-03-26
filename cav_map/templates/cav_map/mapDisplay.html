@@ -29,7 +29,27 @@ body { margin: 0; padding: 0; }
 </style>
 </head>
 <body>
-<a href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div class="container-fluid">
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarToggler">
+     <a class="navbar-brand" href="index.html">Home</a>
+     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+         <a class="nav-link active" aria-current="page" href="mapDisplay.html">Map</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
+       </li>
+     </ul>
+   </div>
+ </div>
+</nav>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 <div id="map"></div>
@@ -63,6 +83,10 @@ map.on('load',  function() {
 </script>
  
 </body>
+<div class="fixed-bottom">
+  <nav class="navbar navbar-light justify-content-center" style ='background-color: #e3f2fd;'>
+      <p class="text-center">Copyright 2021.  Author: Team A-01</p>
+  </nav>
 </html>
 
 <!-- https://stackoverflow.com/questions/59818596/how-to-set-origin-and-destination-with-mapbox-gl-directions -->
