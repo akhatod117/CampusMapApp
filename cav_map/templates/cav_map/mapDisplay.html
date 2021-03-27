@@ -29,7 +29,6 @@ body { margin: 0; padding: 0; }
 #map { position: absolute; top: 25%; bottom: 25%; width: 50%; height: 50%; left: 25%; }
 </style>
 </head>
-<h1 style="text-align: center;">{{ user.username }}'s Map</h1>
 <body>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -51,6 +50,7 @@ body { margin: 0; padding: 0; }
       </div>
     </div>
    </nav>
+<h1 style="text-align: center;">{{ user.username }}'s Map</h1>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 <div id="map"></div>
