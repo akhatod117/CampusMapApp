@@ -127,6 +127,7 @@ AUTHENTICATION_BACKENDS = (
  'allauth.account.auth_backends.AuthenticationBackend',
  )
 SITE_ID = 1
+ACCOUNT_LOGOUT_ON_GET = True
 LOGIN_REDIRECT_URL = 'map'
 LOGOUT_REDIRECT_URL = 'home'
 SOCIALACCOUNT_PROVIDERS = {
