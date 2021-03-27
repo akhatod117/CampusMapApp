@@ -38,22 +38,31 @@
   <h1 style="text-align: center;">Welcome, {{ user.username }} !</h1>
   <script>
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(weatherInfo);
+    navigator.geolocation.getCurrentPosition(weatherInfo1);
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
-  function weatherInfo(pos) {
+  function weatherInfo1(pos) {
   // Get the coordinates of the current possition.
   var geoLat = String(pos.coords.latitude.toFixed(5));
   var geoLng = String(pos.coords.longitude.toFixed(5));
-
+  var city;
+  var rgeo = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + geoLat + "&lon=" + geoLng;
+  fetch(
+    rgeo,
+    { method: 'GET' }
+  )
+  .then( response => response.json()) 
+  .then(data => weatherInfo2(geoLat, geoLng, data));
+}
   //Create an iframe and use the current location data
-  var iSource = "https://forecast.io/embed/#lat=" + geoLat + "&lon=" + geoLng + "&name=Woot&color=#00aaff";
-  $('<iframe>') // Creates the element
-    .attr('src', iSource) // Sets the attribute spry:region="myDs"
-    .attr('height', 245) // Set the height
-    .attr('width', "100%") // Set the width
-    .appendTo('#id-weather'); // Append to an existing element ID
+  function weatherInfo2(geoLat, geoLng, pj){
+  var iSource = "https://forecast.io/embed/#lat=" + geoLat + "&lon=" + geoLng + "&name=" + pj.address.town + "&color=#00aaff";
+  var ifr = document.createElement('iframe'); // Creates the element
+  ifr.src = iSource; // Sets the attribute spry:region="myDs"
+  ifr.height = "245" ;// Set the height
+  ifr.width = "100%"; // Set the width
+  document.querySelector('body').appendChild(ifr);
 }
 //https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/
   </script>
