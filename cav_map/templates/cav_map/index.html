@@ -33,8 +33,32 @@
      display:block;
     }
     </style>
-   <center><img style="height: 25%; width: 15%; padding-top: 5%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
+   <center><img style="height: 25%; width: 15%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
+  </br>
   <h1 style="text-align: center;">Welcome, {{ user.username }} !</h1>
+  <script>
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(weatherInfo);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+  function weatherInfo(pos) {
+  // Get the coordinates of the current possition.
+  var geoLat = String(pos.coords.latitude.toFixed(5));
+  var geoLng = String(pos.coords.longitude.toFixed(5));
+
+  //Create an iframe and use the current location data
+  var iSource = "https://forecast.io/embed/#lat=" + geoLat + "&lon=" + geoLng + "&name=Woot&color=#00aaff";
+  $('<iframe>') // Creates the element
+    .attr('src', iSource) // Sets the attribute spry:region="myDs"
+    .attr('height', 245) // Set the height
+    .attr('width', "100%") // Set the width
+    .appendTo('#id-weather'); // Append to an existing element ID
+}
+//https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/
+  </script>
+  
+  
   <div class="fixed-bottom">
     <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
         <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
