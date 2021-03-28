@@ -21,5 +21,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name="cav_map/index.html"), name='home'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html"), name = 'map'),
+    path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html"), name='map'),
+    path('test/', TemplateView.as_view(template_name="cav_map/coordinateInputs.html"), name='userInput'),
+    path('test/multiPath.html', TemplateView.as_view(template_name="cav_map/multiPath.html"), name='mapTest')
 ]

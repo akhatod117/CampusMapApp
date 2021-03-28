@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User input Coordinates</title>
+    <script>
+            function showClass1(){
+                var message = document.getElementById('class1').value;
+
+            }
+    </script>
+</head>
+    <body>
+
+
+        <form action="multiPath.html" id="user-classes" method="get">
+            <div>
+                <label for="class1">Class 1</label>
+                <input name="class1" id="class1">
+            </div>
+            <div>
+                <label for="class2">Class 2</label>
+                <input name="class2" id="class2">
+            </div>
+            <div>
+                <label for="class3">Class 3</label>
+                <input name="class3" id="class3">
+            </div>
+            <div>
+                <label for="class4">Class 4</label>
+                <input name="class4" id="class4">
+            </div>
+            <div>
+                <label for="class5">Class 5</label>
+                <input name="class5" id="class5">
+            </div>
+
+            <button type="reset">Reset</button>
+            <button type="submit" value="submit" onclick="showClass1()" >Generate Map</button>
+        </form>
+
+
+    </body>
+</html>
