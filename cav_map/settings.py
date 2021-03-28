@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'cav_map.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dcpm0268oou4dj',
+        'USER': 'drparvidhbftyl',
+        'PASSWORD': '7971ec2da62bff09ec1c4bcdb5483a853b7d4e80f6f10ffd335fc6cffe084b95',
+        'HOST': 'ec2-3-87-180-131.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
