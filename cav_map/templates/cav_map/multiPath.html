@@ -34,7 +34,7 @@
 
           //has all the appropriate urls to perform the get request.
           //now need to loop through all urls to actually perform the get request and retrieve the coordinate values.
-          alert(urlstore);
+          //alert(urlstore);
 
 
 
@@ -49,21 +49,20 @@
                const response = await fetch(urlstore[j]);
                const data = await response.json();
                let coordinate = data.features[0].geometry.coordinates;
-               console.log("coordinate: " + coordinate);
-               console.log("coordinate[0]: " + coordinate[0]);
+              // console.log("coordinate: " + coordinate);
+              // console.log("coordinate[0]: " + coordinate[0]);
                arrayOfCoordinates.push(coordinate);
             }
 
 
             var x = 0;
             var apiString = '';
-            for(x = 0; x < (arrayOfCoordinates.length -1 ); x++){
+            for(x = 0; x < (arrayOfCoordinates.length); x++){
                apiString += arrayOfCoordinates[x]+';';
             }
-            apiString += arrayOfCoordinates[arrayOfCoordinates.length-1];
 
-
-            console.log("arrayOfCoordinates: " + arrayOfCoordinates);
+            return apiString;
+            //console.log("arrayOfCoordinates: " + arrayOfCoordinates);
 
             //return arrayOfCoordinates;
 
@@ -89,7 +88,7 @@
 
 
           var r = window.location.search;
-          alert(r);
+          //alert(r);
 
       </script>
 
@@ -109,7 +108,7 @@
       </p>
 
 
-    <!--
+
     <div id='map' class='contain'></div>
     <script>
 
@@ -133,13 +132,18 @@
             accessToken: mapboxgl.accessToken
         });
 
-    map.addControl(directions,'top-left');
+    //map.addControl(directions,'top-left');
 
     map.on('load',  function() {
         directions.setOrigin([position.coords.longitude, position.coords.latitude]);
+        var currentPos =  [position.coords.longitude, position.coords.latitude];
+        console.log("currentPos: " + currentPos);
+        //var myString = getCoordinates();
+        //console.log("myString: " + myString);
+
     })}
     </script>
-    -->
+
 
 
   </body>
