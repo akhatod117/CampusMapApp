@@ -47,7 +47,7 @@
 if (navigator.geolocation) {
   var img = document.createElement('img');
   img.src = 'https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif';
-  document.getElementById('body').appendChild(img);
+  document.querySelector('body').appendChild(img);
     navigator.geolocation.getCurrentPosition(weatherInfo1);
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
