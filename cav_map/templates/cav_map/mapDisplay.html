@@ -1,0 +1,102 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+
+  <iframe
+  name='myIframe'
+  width="650"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD35Y_moHwwrQHYv_u_9HZ_spFzr7eIbvQ&origin=Scott+Stadium, Charlottesville + Virginia&destination= Newcomb+Hall,Charlottesville+Virginia" allowfullscreen>
+</iframe>
+
+
+</html>
+ -->
+
+<!DOCTYPE html>
+{% load socialaccount %}
+<html>
+{% if user.is_authenticated %}
+<head>
+<meta charset="utf-8">
+<title>CavMap - Map</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 25%; bottom: 25%; width: 50%; height: 50%; left: 25%; }
+</style>
+</head>
+<body>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <a class="navbar-brand" href="https://a01-cav-map.herokuapp.com/">CavMap</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="https://a01-cav-map.herokuapp.com/map/">Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://a01-cav-map.herokuapp.com/routemaker/">Route Maker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+   </nav>
+  </br>
+</br>
+<h1 style="text-align: center;">{{ user.username }}'s Map</h1>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+<div id="map"></div>
+ 
+<script>
+	// TO MAKE THE MAP APPEAR YOU MUST
+	// ADD YOUR ACCESS TOKEN FROM
+	// https://account.mapbox.com
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(mapInfo);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+  function mapInfo(position){
+	mapboxgl.accessToken = 'pk.eyJ1IjoiY2F2bWFwcCIsImEiOiJja21sMTQ2bGIwMzJqMnZuM2sxdmJyN3NxIn0.SmVfbpZ7nZF6HqbgiJSaog';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [position.coords.longitude, position.coords.latitude],
+zoom: 13
+});
+var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+    });
+
+map.addControl(directions,'top-left');
+
+map.on('load',  function() {
+    directions.setOrigin([position.coords.longitude, position.coords.latitude]);  
+})}
+</script>
+ 
+</body>
+<div class="fixed-bottom">
+  <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
+      <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
+  </nav>
+</div>
+  {% else %}
+  <meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" />
+{% endif %}
+</html>
+
+<!-- https://stackoverflow.com/questions/59818596/how-to-set-origin-and-destination-with-mapbox-gl-directions -->

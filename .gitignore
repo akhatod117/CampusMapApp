@@ -2,3 +2,21 @@ env
 *.DS_Store
 *.pyc
 __pycache__
+
+# Default ignored files
+/shelf/
+/workspace.xml
+*.xml
+*.iml
+
+*.pyc
+*.pyo
+*.mo
+*.po
+django_venv/
+.venv
+venv/
+env/
+.env
+
+

@@ -1,19 +1,106 @@
 {% load socialaccount %}
 <html>
+
   <head>
-    <title>Google Registration</title>
+    <title>CavMap - Home</title>
   </head>
   <body>
-  <h1>Google Login Test</h1>
   {% if user.is_authenticated %}
-  <p>Welcome, {{ user.username }} !</p>
-  <a href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <a class="navbar-brand" href="https://a01-cav-map.herokuapp.com/">CavMap</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="https://a01-cav-map.herokuapp.com/map/">Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://a01-cav-map.herokuapp.com/routemaker/">Route Maker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+   </nav>
+   <style type="text/css">
+    .centerImage
+    {
+     text-align:center;
+     display:block;
+    }
+    </style>
+    </br>
+   <center><img style="height: 25%; width: 15%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
+  </br>
+</br>
+  <h1 style="text-align: center;">Welcome, {{ user.username }} !</h1>
+</br>
+</br>
+  <script>
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(weatherInfo1);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+  function weatherInfo1(pos) {
+  // Get the coordinates of the current possition.
+  var geoLat = String(pos.coords.latitude.toFixed(5));
+  var geoLng = String(pos.coords.longitude.toFixed(5));
+  var city;
+  var rgeo = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + geoLat + "&lon=" + geoLng;
+  fetch(
+    rgeo,
+    { method: 'GET' }
+  )
+  .then( response => response.json()) 
+  .then(data => weatherInfo2(geoLat, geoLng, data));
+}
+  //Create an iframe and use the current location data
+  function weatherInfo2(geoLat, geoLng, pj){
+  var iSource = "https://forecast.io/embed/#lat=" + geoLat + "&lon=" + geoLng + "&name=" + pj.address.town + "&color=#00aaff";
+  var ifr = document.createElement('iframe'); // Creates the element
+  ifr.src = iSource; // Sets the attribute spry:region="myDs"
+  ifr.height = "245" ;// Set the height
+  ifr.width = "100%"; // Set the width
+  document.querySelector('body').appendChild(ifr);
+}
+//https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/
+  </script>
+  
+  
+  <div class="fixed-bottom">
+    <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
+        <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
+    </nav>
+</div>
  
   {% else %}
-  <h1>Google Login Test</h1>
-  <a href="{% provider_login_url 'google' %}">Login with Google</a>
+
+  <style type="text/css">
+    .centerImage
+    {
+     text-align:center;
+     display:block;
+    }
+    </style>
+  <body style="background-color: hsl(240, 87%, 18%);"></body>
+  <center><img style="height: 25%; width: 15%; padding-top: 5%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
+  </br>
+  <h1 style="color: white; text-align:center;">CavMap</h1>
+</br>
+  <center><a href="{% provider_login_url 'google' %}"><img style="width: auto; height: 5%;" src="https://www.drupal.org/files/issues/2020-01-26/google_logo.png"></a></center>
+
 
   {% endif %}
 
   </body>
+
+</div>
 </html>

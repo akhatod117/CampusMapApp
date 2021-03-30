@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+{% load socialaccount %}
+<html>
+  {% if user.is_authenticated %}
+  <head>
+    <meta charset='utf-8' />
+    <title>CavMap - Generated Route Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <script>
+
+         /* var inputs = [];
+
+          var count = 1;
+          for(count = 1; count<6; count++){
+            //alert("count: " + count);
+            var url = new URL(location.href).searchParams.get('class'+count);
+            //alert(url);
+            if(url == null){
+               continue;
+            }
+            inputs.push(url);
+          }
+          //alert(inputs);
+
+          var urlstore = [];
+          var i = 0;
+          for( i = 0; i< inputs.length; i++){
+            //alert("inputs[i]: " + inputs[i]);
+            var apiUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+inputs[i]+".json?proximity=38.033554,-78.507980&access_token=pk.eyJ1IjoiY2F2bWFwcCIsImEiOiJja21sMTQ2bGIwMzJqMnZuM2sxdmJyN3NxIn0.SmVfbpZ7nZF6HqbgiJSaog&limit=1";
+            //alert("apiUrl: " + apiUrl);
+            urlstore.push(apiUrl);
+          }
+
+          //has all the appropriate urls to perform the get request.
+          //now need to loop through all urls to actually perform the get request and retrieve the coordinate values.
+          //alert(urlstore);
+
+
+
+          console.log("urlstore[0]: " + urlstore[0]);
+
+          getCoordinates();
+
+          async function getCoordinates(){
+             var arrayOfCoordinates = []
+             var j=0;
+            for(j = 0; j<urlstore.length; j++){
+               const response = await fetch(urlstore[j]);
+               const data = await response.json();
+               let coordinate = data.features[0].geometry.coordinates;
+              // console.log("coordinate: " + coordinate);
+              // console.log("coordinate[0]: " + coordinate[0]);
+               arrayOfCoordinates.push(coordinate);
+            }
+
+
+            console.log("Gilmer Hall: " + arrayOfCoordinates[0]);
+            var x = 0;
+            var apiString = '';
+            for(x = 0; x < (arrayOfCoordinates.length); x++){
+               apiString += arrayOfCoordinates[x]+';';
+            }
+            console.log(apiString);
+            return apiString;
+
+
+
+            //return arrayOfCoordinates;
+
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          //console.log("arrayOfCoordinates: " + arrayOfCoordinates);
+
+
+
+
+
+          var r = window.location.search;
+          //alert(r);
+          */
+
+      </script>
+    <body>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggler">
+            <a class="navbar-brand" href="https://a01-cav-map.herokuapp.com/">CavMap</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="https://a01-cav-map.herokuapp.com/map/">Map</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://a01-cav-map.herokuapp.com/routemaker/">Route Maker</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+       </nav>
+      </br>
+    </br>
+    <h1 style="text-align: center;">{{ user.username }}'s Generated Route</h1>
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 25%; bottom: 25%; width: 50%; height: 50%; left: 25%; }
+    </style>
+  </head>
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+  <body>
+
+
+
+
+
+    <div id='map' class='contain'></div>
+    <script>
+
+          var inputs = [];
+
+          var count = 1;
+          for(count = 1; count<6; count++){
+            //alert("count: " + count);
+            var url = new URL(location.href).searchParams.get('class'+count);
+            //alert(url);
+            if(url == null){
+               continue;
+            }
+            inputs.push(url);
+          }
+          //alert(inputs);
+
+          var urlstore = [];
+          var i = 0;
+          for( i = 0; i< inputs.length; i++){
+            //alert("inputs[i]: " + inputs[i]);
+            var apiUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+inputs[i]+".json?proximity=38.033554,-78.507980&access_token=pk.eyJ1IjoiY2F2bWFwcCIsImEiOiJja21sMTQ2bGIwMzJqMnZuM2sxdmJyN3NxIn0.SmVfbpZ7nZF6HqbgiJSaog&limit=1";
+            //alert("apiUrl: " + apiUrl);
+            urlstore.push(apiUrl);
+          }
+
+          //has all the appropriate urls to perform the get request.
+          //now need to loop through all urls to actually perform the get request and retrieve the coordinate values.
+          //alert(urlstore);
+
+
+
+          console.log("urlstore[2]: " + urlstore[2]);
+
+          getCoordinates();
+
+          async function getCoordinates(){
+             var arrayOfCoordinates = []
+             var j=0;
+            for(j = 0; j<urlstore.length; j++){
+               const response = await fetch(urlstore[j]);
+               const data = await response.json();
+               let coordinate = data.features[0].geometry.coordinates;
+              // console.log("coordinate: " + coordinate);
+              // console.log("coordinate[0]: " + coordinate[0]);
+               arrayOfCoordinates.push(coordinate);
+            }
+
+
+
+
+
+
+
+
+            //has the all the waypoints, needs to include origin to first waypoint and last waypoint back to the origin.
+            //console.log(apiString);
+
+
+            // TO MAKE THE MAP APPEAR YOU MUST
+            // ADD YOUR ACCESS TOKEN FROM
+           // https://account.mapbox.com
+
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(mapInfo);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+
+          function mapInfo(position){
+            mapboxgl.accessToken = 'pk.eyJ1IjoiY2F2bWFwcCIsImEiOiJja21sMTQ2bGIwMzJqMnZuM2sxdmJyN3NxIn0.SmVfbpZ7nZF6HqbgiJSaog';
+            var map = window.map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [position.coords.longitude, position.coords.latitude],
+            zoom: 12
+          });
+
+            var directions = new MapboxDirections({
+                accessToken: mapboxgl.accessToken,
+                placeholderDestination: "Rotunda",
+                alternatives: true,
+                profile: 'mapbox/driving'
+                //proximity: [38.033554,-78.507980]
+
+            });
+
+          map.addControl(directions, 'top-left');
+
+          var originCoordinate = [position.coords.longitude, position.coords.latitude];
+          arrayOfCoordinates.splice(0,0,originCoordinate);
+          map.on('load',  function() {
+              directions.setOrigin([position.coords.longitude, position.coords.latitude]);
+              console.log("arrayOfCoordinates: " + arrayOfCoordinates);
+
+              directions.setDestination(arrayOfCoordinates[arrayOfCoordinates.length-1]);
+
+          });
+
+        //in
+          var h = 0;
+          for(h = 1; h<arrayOfCoordinates.length-1; h++){
+              var tempCoord = [];
+              tempCoord.push(arrayOfCoordinates[h][0]);
+              tempCoord.push(arrayOfCoordinates[h][1]);
+              console.log("tempCoord: " + [tempCoord[0],tempCoord[1]]);
+              directions.addWaypoint(0, tempCoord);
+              new mapboxgl.Marker().setLngLat(tempCoord).addTo(map);
+
+          }
+
+
+          //directions.addWaypoint(1, arrayOfCoordinates[arrayOfCoordinates.length-2]);
+          //new mapboxgl.Marker().setLngLat(arrayOfCoordinates[arrayOfCoordinates.length-2]).addTo(map);
+
+
+
+
+
+
+        //console.log("arrayOfCoordinates[1]: " + arrayOfCoordinates[1]);
+       // console.log("typeof arrayOfCoordinates[1][0]: " + typeof arrayOfCoordinates[1][0]);
+
+
+
+
+
+        var x = 0;
+        var apiString = '';
+        //start at 1 to exclude origin, and end before last element to exclude destination. No duplicate waypoints are added.
+          for(x = 1; x < (arrayOfCoordinates.length-1); x++){
+              //directions.addWaypoint(x,arrayOfCoordinates[x]);
+              apiString += arrayOfCoordinates[x]+';';
+          }
+
+        //directions.setDestination([-78.51318, 38.034565]);
+
+        console.log(apiString);
+
+
+
+        }
+
+
+          }
+
+
+      </script>
+
+
+<div class="fixed-bottom">
+  <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
+      <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
+  </nav>
+</div>
+  </body>
+  {% else %}
+  <meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" />
+{% endif %}
+</html>
