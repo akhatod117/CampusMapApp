@@ -23,6 +23,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 
     path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html")),
-    path('classSchedule/', TemplateView.as_view(template_name="cav_map/classSchedule.html")),
+    path('classSchedule/', TemplateView.as_view(template_name="cav_map/class.html")),
 
 ]

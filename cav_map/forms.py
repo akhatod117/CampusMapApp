@@ -1,10 +1,11 @@
 from django import forms
-from .models import Thoughts
+from .models import Class, ClassSchedule
 
 class ClassForm(forms.ModelForm):
-    myClass=forms.CharField()
+    className=forms.CharField()
     building=forms.CharField()
 
     class Meta:
-        model=ClassSchedule
-        fields=('myClass','building')
+        model=Class
+        fields=('className','building')
+        #fields=('__all__')
