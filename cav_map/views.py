@@ -5,13 +5,13 @@ from django.views import generic, View
 from django.utils import timezone
 from django.views.generic.edit import CreateView
 from django.views.decorators.http import require_POST
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
 from django.template import loader
 
 from .models import ClassSchedule, Class
 from .forms import ClassForm
 
-class ClassView(TemplateView):
+class ClassView(FormView):
     template_name='cav_map/classSchedule.html'
     form_class = ClassForm
     model = Class
@@ -21,10 +21,11 @@ class ClassView(TemplateView):
         return render(request, self.template_name, {'form':form})
 
     def post(self, request):
-       
+        print("post request")
         form=ClassForm(request.POST)
 
         if form.is_valid():
+            
             form.save()
             form=ClassForm()
             return HttpResponseRedirect(self.request.path_info)
