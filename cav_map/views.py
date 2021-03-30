@@ -12,7 +12,7 @@ from .models import ClassSchedule, Class
 from .forms import ClassForm
 
 class ClassView(TemplateView):
-    template_name='cav_map/class.html'
+    template_name='cav_map/classSchedule.html'
     form_class = ClassForm
     model = Class
     

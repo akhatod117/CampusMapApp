@@ -4,7 +4,7 @@ class ClassSchedule(models.Model):
     mySchedule=models.CharField(max_length=500, default='Schedule')
     #building=models.CharField(max_length=500, default='Building')    
     def __str__(self):
-        return self.building
+        return self.mySchedule
 
 class Class(models.Model):
     schedule = models.ForeignKey(ClassSchedule, on_delete=models.CASCADE)
