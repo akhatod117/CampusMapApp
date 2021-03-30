@@ -7,5 +7,5 @@ class ClassForm(forms.ModelForm):
 
     class Meta:
         model=Class
-        fields=('className','building')
-        #fields=('__all__')
+        #fields=('className','building')
+        fields=('__all__')

@@ -23,9 +23,12 @@ class ClassView(TemplateView):
     def post(self, request):
        
         form=ClassForm(request.POST)
+
         if form.is_valid():
             form.save()
             form=ClassForm()
+            return HttpResponseRedirect(self.request.path_info)
         args={'form':form}
         #return HttpResponseRedirect(self.request.path_info)
         return render(request, self.template_name, args)
+
