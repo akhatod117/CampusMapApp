@@ -35,13 +35,6 @@
      text-align:center;
      display:block;
     }
-    #load{
-    width:100%;
-    height:100%;
-    position:fixed;
-    z-index:9999;
-    background:url("https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif") no-repeat center center rgba(0,0,0,0.25)
-}
     </style>
     </br>
    <center><img style="height: 25%; width: 15%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
@@ -50,9 +43,6 @@
   <h1 style="text-align: center;">Welcome, {{ user.username }} !</h1>
 </br>
 </br>
-<body>
-  <div id="load"></div>
-  <div id ="contents">
   <script>
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(weatherInfo1);
@@ -82,22 +72,8 @@ if (navigator.geolocation) {
   document.querySelector('body').appendChild(ifr);
 }
 //https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/
-document.onreadystatechange = function () {
-  var state = document.readyState
-  if (state == 'interactive') {
-       document.getElementById('contents').style.visibility="hidden";
-  } else if (state == 'complete') {
-      setTimeout(function(){
-         document.getElementById('interactive');
-         document.getElementById('load').style.visibility="hidden";
-         document.getElementById('contents').style.visibility="visible";
-      },1000);
-  }
-}
-//https://stackoverflow.com/questions/23906956/show-loading-icon-until-the-page-is-load
   </script>
-  </div>
-  </body>
+  
   
   <div class="fixed-bottom">
     <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
