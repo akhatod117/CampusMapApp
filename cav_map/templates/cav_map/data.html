@@ -1,19 +1,97 @@
-<script>{
-    clientId: "client_id";
-    password: "client_password";
-    table_name: "mqap.TABLENAME";//rename table from mqap.TABLENAME
+<script>
+//    https://developer.mapquest.com/documentation/data-manager/tables/create-table/-->
+
+function create_table(){
+    clientId: "client_id";//ditto to below. Maybe the info on Heroku or mapquest about our user and pswrd
+    password: "client_password";//dont know wha to put here. maybe super user passwrod
+    table_name: "mqap.cav_map_table";//rename table from mqap.TABLENAME
     //"friendlyName": "friendly_name";  //optional
     //"notes": "notes",                 //optional
-    "columns": [
+    columns: [
         {
-            name: "student",
+            name: "student_id",
             type: "string",
             isPublic: false
         },
         {
+            name: "class1",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class1_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class1_y",//latitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class2",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class2_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class2_y",//latitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class3",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class3_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class3_y",//latitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class4",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class4_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class4_y",//latitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class5",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class5_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class5_y",//latitude
+            type: "string",
+            isPublic: false
+        },
 
-        }
-    ],
+    ]
     isPublic: false;
 }</script>
+
+
    
