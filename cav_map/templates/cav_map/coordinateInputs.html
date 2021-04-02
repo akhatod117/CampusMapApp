@@ -42,10 +42,10 @@
         <form action="multiPath.html" id="user-classes" method="get">
           <div id="classes">
             <p>
-                <label for="classes"> Class  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
+                <label for="classes"> Stop Location  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
             </p>
         </div>
-            <button id="addClass">Add Another Class</button>
+            <button id="addClass">Add Another Stop</button>
             <button type="reset">Reset</button>
           </br>
             <button type="submit" value="submit" onclick="showClass1()" >Generate Map</button>
@@ -66,7 +66,7 @@ var classDiv = $('#classes');
 var i = $('#classes p').size() + 1;
 
 $('#addClass').live('click', function() {
-        $('<p><label for="classes">Class <input type="text" id="class' + i +'"size="20" name="class' + i +'" value="" placeholder="Building Name" /></label> <a href="#" id="remClass">Remove</a></p>').appendTo(classDiv);
+        $('<p><label for="classes">Stop Location <input type="text" id="class' + i +'"size="20" name="class' + i +'" value="" placeholder="Building Name" /></label> <a href="#" id="remClass">Remove</a></p>').appendTo(classDiv);
         i++;
         return false;
 });
