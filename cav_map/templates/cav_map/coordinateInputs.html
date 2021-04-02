@@ -40,31 +40,37 @@
 
 
         <form action="multiPath.html" id="user-classes" method="get">
-            <div>
-                <label for="class1">Class 1</label>
-                <input name="class1" id="class1">
-            </div>
-            <div>
-                <label for="class2">Class 2</label>
-                <input name="class2" id="class2">
-            </div>
-            <div>
-                <label for="class3">Class 3</label>
-                <input name="class3" id="class3">
-            </div>
-            <div>
-                <label for="class4">Class 4</label>
-                <input name="class4" id="class4">
-            </div>
-            <div>
-                <label for="class5">Class 5</label>
-                <input name="class5" id="class5">
-            </div>
-
+          <div id="classes">
+            <p>
+                <label for="classes"> Class  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
+            </p>
+        </div>
+            <a href="#" id="addClass">Add Another Class</a>
+      </br>
             <button type="reset">Reset</button>
             <button type="submit" value="submit" onclick="showClass1()" >Generate Map</button>
         </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        $(function() {
+        var classDiv = $('#classes');
+        var i = $('#classes p').size() + 1;
         
+        $('#addClass').live('click', function() {
+                $('<p><label for="classes">Class <input type="text" id="class' + i +'"size="20" name="class' + i +'" value="" placeholder="Building Name" /></label> <a href="#" id="remClass">Remove</a></p>').appendTo(classDiv);
+                i++;
+                return false;
+        });
+        
+        $('#remClass').live('click', function() { 
+                if( i > 2 ) {
+                        $(this).parents('p').remove();
+                        i--;
+                }
+                return false;
+        });
+});
+
+        </script>
         <div class="fixed-bottom">
             <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
                 <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
