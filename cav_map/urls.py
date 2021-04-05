@@ -24,4 +24,5 @@ urlpatterns = [
     path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html"), name='map'),
     path('routemaker/', TemplateView.as_view(template_name="cav_map/coordinateInputs.html"), name='userInput'),
     path('routemaker/multiPath.html', TemplateView.as_view(template_name="cav_map/multiPath.html"), name='mapTest')
+    
 ]

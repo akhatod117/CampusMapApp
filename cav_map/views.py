@@ -1,11 +1,14 @@
 from django.shortcuts import render
 
 from .models import Class, ClassSchedule, Student
+from .forms import ClassForm
 
-dummy = [
-    {
-        'className'
+def classInfo(request):
+    class_form = ClassForm(request.POST)
+
+    if class_form.is_valid():
+        new_class = ClassForm.save()
+    context = {
+        
     }
-]
-def blog(request):
-    return render(request, 'cav_map/data.html', ClassSchedule)
+    return render(request, 'cav_map/multiPath.html')
