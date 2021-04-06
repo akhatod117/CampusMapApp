@@ -11,4 +11,8 @@ def classInfo(request):
     context = {
         
     }
-    return render(request, 'cav_map/multiPath.html')
+    return render(request, 'cav_map/multiPath.html', {'form' : class_form})
+
+#def scheduleInfo(request):
+
+    #schedule_form = 
