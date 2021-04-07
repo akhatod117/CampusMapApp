@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 #from django.contrib
 
 class Student(models.Model):
-    
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=52, default='Mary')
     email = models.CharField(max_length=122, default='nope@null.com')
 
@@ -14,7 +14,7 @@ class Student(models.Model):
 class ClassSchedule(models.Model):
     #student=models.CharField(max_length=50)
     #the map hopefully here
-    student = models.ForeignKey(User, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(default=timezone.now)
     #building=models.CharField(max_length=500, default='Building')    
     def __str__(self):
