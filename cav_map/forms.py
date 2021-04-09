@@ -4,7 +4,7 @@ from .models import Class, Student,  ClassSchedule
 class ClassForm(forms.ModelForm):
     class Meta:
         model = Class
-        fields = ['schedule', 'className', 'building', 'x', 'y']
+        fields = ['className', 'building',]
 
 class StudentForm(forms.ModelForm):
     class Meta:
