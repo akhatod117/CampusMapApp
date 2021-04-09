@@ -159,8 +159,8 @@
           var i = 0;
           for( i = 0; i< inputs.length; i++){
             //alert("inputs[i]: " + inputs[i]);
-            var apiUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+inputs[i]+".json?proximity=38.033554,-78.507980&access_token=pk.eyJ1IjoiY2F2bWFwcCIsImEiOiJja21sMTQ2bGIwMzJqMnZuM2sxdmJyN3NxIn0.SmVfbpZ7nZF6HqbgiJSaog&limit=1";
-            //alert("apiUrl: " + apiUrl);
+            var apiUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+inputs[i]+".json?bbox=-78.5358931203899,38.01295050249806,-78.44197013064296,38.06393224419145&access_token=pk.eyJ1IjoiY2F2bWFwcCIsImEiOiJja21sMTQ2bGIwMzJqMnZuM2sxdmJyN3NxIn0.SmVfbpZ7nZF6HqbgiJSaog&limit=1";
+            console.log("apiUrl: " + apiUrl);
             urlstore.push(apiUrl);
           }
 
@@ -170,7 +170,11 @@
 
 
 
-          console.log("urlstore[2]: " + urlstore[2]);
+          var j = 0;
+          for(j = 0; i<urlstore.length; j++){
+            alert(urlstore[j]);
+          }
+
 
           getCoordinates();
 
@@ -180,8 +184,9 @@
             for(j = 0; j<urlstore.length; j++){
                const response = await fetch(urlstore[j]);
                const data = await response.json();
+               alert(data.features[0]);
                let coordinate = data.features[0].geometry.coordinates;
-              // console.log("coordinate: " + coordinate);
+               console.log("coordinate: " + coordinate);
               // console.log("coordinate[0]: " + coordinate[0]);
                arrayOfCoordinates.push(coordinate);
             }
@@ -295,6 +300,6 @@
 </div>
   </body>
   {% else %}
-  <meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" />
+  <!--<meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" /> -->
 {% endif %}
 </html>
