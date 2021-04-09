@@ -22,7 +22,7 @@
               <a class="nav-link" href="{% url 'routeMaker' %}">Route Maker</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_logout'%}">Logout</a>
+              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
           </ul>
         </div>
@@ -73,12 +73,12 @@
 
         <form action="{% url 'add_class' %}" id="user-classes" method="post" enctype="multipart/form-data">
           
-          <div id="classes">
+          <div id="schedule">
             <p>
                 {% csrf_token %}
                 {{ form.className }}
                 {{ form.building }}
-                <label for="classes"> Stop Location  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
+                <label for="schedule"> Stop Location  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
             </p>
         </div>
         <!--{% csrf_token %}
@@ -98,30 +98,7 @@
         </div>
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-<script>
 
-$(function() {
-var classDiv = $('#classes');
-var i = $('#classes p').size() + 1;
-
-$('#addClass').live('click', function() {
-        $('<p>{% csrf_token %}{{ form.className }}{{ form.building }}<label for="classes">Stop Location <input type="text" id="class' + i +'"size="20" name="class' + i +'" value="" placeholder="Building Name" /></label> <a href="#" id="remClass">Remove</a></p>').appendTo(classDiv);
-        i++;
-        return false;
-});
-
-$('#remClass').live('click', function() { 
-        if( i > 2 ) {
-                $(this).parents('p').remove();
-                i--;
-        }
-        return false;
-});
-});
-
-
-
-</script>
 
     </body>
     {% else %}
