@@ -9,8 +9,9 @@ def classInfo(request):
         class_form = ClassForm(request.POST)
         
         if class_form.is_valid():
-            print(class_form)
+            
             new_class = class_form.save()
+            print(class_form)
             print(new_class)
             #new_class.student = request.user        #set student to user logged in
             #new_class.save()
