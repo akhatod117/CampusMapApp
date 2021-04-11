@@ -21,7 +21,7 @@ class ClassSchedule(models.Model):
         return 
 
 class Class(models.Model):
-   # schedule = models.ForeignKey(ClassSchedule, on_delete=models.CASCADE)
+    #schedule = models.ForeignKey(ClassSchedule, on_delete=models.CASCADE)
     className=models.CharField(max_length=122, default='New Class')
     building=models.CharField(max_length=500, default='Building') 
     x = models.CharField(max_length= 100, default='0.0')

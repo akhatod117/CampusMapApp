@@ -14,4 +14,4 @@ class StudentForm(forms.ModelForm):
 class ScheduleForm(forms.ModelForm):
     class Meta:
         model = ClassSchedule
-        fields = ['student', 'date_posted']
+        fields = ['student']

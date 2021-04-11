@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 
 from .models import Class, ClassSchedule, Student
-from .forms import ClassForm
+from .forms import ClassForm, ScheduleForm, StudentForm
+
+def createSchedule(request):
+    schedule_form = ScheduleForm()
+
 
 def classInfo(request):
 
@@ -16,7 +20,7 @@ def classInfo(request):
             #new_class.student = request.user        #set student to user logged in
             #new_class.save()
             #class_form.save()
-            return redirect('routemaker/multiPath')
+            return redirect('1/multiPath')
     #else:
      #   class_form = ClassForm()
     
