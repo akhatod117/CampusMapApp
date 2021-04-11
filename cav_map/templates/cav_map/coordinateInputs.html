@@ -70,7 +70,7 @@
                 <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
             </nav>
         </div>-->
-
+      
         <form action="{% url 'add_class' %}" id="user-classes" method="post" enctype="multipart/form-data">
           
           <div id="classes">
@@ -80,6 +80,7 @@
                 {{ form.building }}
                 <label for="classes"> Stop Location  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
             </p>
+          
         </div>
         <!--{% csrf_token %}
         {{ form.className }}
