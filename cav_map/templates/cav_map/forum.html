@@ -11,7 +11,7 @@
         <h3>Available Users:</h3>
         <ul>
             {% for user in users %}
-                <li>{{user}}</li>
+                <li>{{user.get_username}}</li>
             {% endfor %}
         </ul>
 </body>
