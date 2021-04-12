@@ -41,7 +41,13 @@ body { margin: 0; padding: 0; }
         <a class="navbar-brand" href="https://a01-cav-map.herokuapp.com/">CavMap</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://a01-cav-map.herokuapp.com/map/">Map</a>
+            <a class="nav-link" aria-current="page" href="https://a01-cav-map.herokuapp.com/map/">Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://a01-cav-map.herokuapp.com/routemaker/">Route Maker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://a01-cav-map.herokuapp.com/createPost/">Create Post</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
@@ -55,7 +61,7 @@ body { margin: 0; padding: 0; }
 <h1 style="text-align: center;">{{ user.username }}'s Map</h1>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-<div id="map"></div>
+<div style="background-image: url(https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif); background-repeat: no-repeat; background-position: center;" id="map"></div>
  
 <script>
 	// TO MAKE THE MAP APPEAR YOU MUST

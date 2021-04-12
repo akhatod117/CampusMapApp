@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from . import views
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="cav_map/index.html"), name='home'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html"), name='map'),
-    path('test/', TemplateView.as_view(template_name="cav_map/coordinateInputs.html"), name='userInput'),
-    path('test/multiPath.html', TemplateView.as_view(template_name="cav_map/multiPath.html"), name='mapTest')
+    path('routemaker/', TemplateView.as_view(template_name="cav_map/coordinateInputs.html"), name='userInput'),
+    path('routemaker/multiPath.html', TemplateView.as_view(template_name="cav_map/multiPath.html"), name='mapTest'),
+    path('forum/', views.social_view, name='forum'),
+    path('createPost/', views.forum_post_create_view, name='createPost')
 ]

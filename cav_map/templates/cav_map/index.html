@@ -17,7 +17,13 @@
         <a class="navbar-brand" href="https://a01-cav-map.herokuapp.com/">CavMap</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://a01-cav-map.herokuapp.com/map/">Map</a>
+            <a class="nav-link" aria-current="page" href="https://a01-cav-map.herokuapp.com/map/">Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://a01-cav-map.herokuapp.com/routemaker/">Route Maker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://a01-cav-map.herokuapp.com/createPost/">Create Post</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
@@ -42,6 +48,12 @@
 </br>
   <script>
 if (navigator.geolocation) {
+  var img = document.createElement('img');
+  img.src = 'https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif';
+  img.style.display = "block";
+  img.style.marginLeft = "auto";
+  img.style.marginRight = "auto";
+  document.querySelector('body').appendChild(img);
     navigator.geolocation.getCurrentPosition(weatherInfo1);
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
@@ -66,6 +78,7 @@ if (navigator.geolocation) {
   ifr.src = iSource; // Sets the attribute spry:region="myDs"
   ifr.height = "245" ;// Set the height
   ifr.width = "100%"; // Set the width
+  document.querySelector('body').removeChild(img)
   document.querySelector('body').appendChild(ifr);
 }
 //https://www.spatialtimes.com/2019/01/Create-a-JavaScript-Weather-App-with-Location-Data-Part-1/
