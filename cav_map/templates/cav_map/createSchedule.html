@@ -22,7 +22,7 @@
               <a class="nav-link" href="{% url 'routeMaker' %}">Route Maker</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_logout'%}">Logout</a>
+              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
           </ul>
         </div>
@@ -37,7 +37,6 @@
     </script>
 </head>
     <body>
-
 
 
         <!--<form action="multiPath.html" id="user-classes" method="get">
@@ -62,39 +61,26 @@
                 <input name="class5" id="class5">
             </div>
 
-
-        <form action="multiPath.html" id="user-classes" method="get">
-          <div id="classes">
-            <p>
-                <label for="classes"> Stop Location  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
-            </p>
-        </div>
-            <button id="addClass">Add Another Stop</button>
-
             <button type="reset">Reset</button>
-          </br>
             <button type="submit" value="submit" onclick="showClass1()" >Generate Map</button>
         </form>
         
-
         <div class="fixed-bottom">
             <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
                 <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
             </nav>
         </div>-->
-      
-        <form action="{% url 'add_class' %}" id="user-classes" method="post" enctype="multipart/form-data">
+
+        <form action="{% url 'add_schedule' %}" id="user-classes" method="post" enctype="multipart/form-data">
           
-          <div id="classes">
+          <div id="schedule">
             <p>
                 {% csrf_token %}
                 {{ form.className }}
                 {{ form.building }}
-                <label for="classes"> Stop Location  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
+                <label for="schedule"> Stop Location  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
             </p>
-          
         </div>
-
         <!--{% csrf_token %}
         {{ form.className }}
         {{ form.building }}-->
@@ -110,34 +96,10 @@
                 <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
             </nav>
         </div>
-
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-<script>
-
-$(function() {
-var classDiv = $('#classes');
-var i = $('#classes p').size() + 1;
-
-$('#addClass').live('click', function() {
-
-        $('<p>{{ form.className }}{{ form.building }}<label for="classes">Stop Location <input type="text" id="class' + i +'"size="20" name="class' + i +'" value="" placeholder="Building Name" /></label> <a href="#" id="remClass">Remove</a></p>').appendTo(classDiv);
-        i++;
-        return false;
-});
-
-$('#remClass').live('click', function() { 
-        if( i > 2 ) {
-                $(this).parents('p').remove();
-                i--;
-        }
-        return false;
-});
-});
 
 
-
-</script>
     </body>
     {% else %}
     <meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" />
