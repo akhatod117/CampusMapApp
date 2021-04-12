@@ -187,7 +187,7 @@
             for(j = 0; j<urlstore.length; j++){
                const response = await fetch(urlstore[j]);
                const data = await response.json();
-               alert(data.features[0]);
+               //alert(data.features[0]);
                let coordinate = data.features[0].geometry.coordinates;
                console.log("coordinate: " + coordinate);
               // console.log("coordinate[0]: " + coordinate[0]);
