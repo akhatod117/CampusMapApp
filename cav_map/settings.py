@@ -88,6 +88,10 @@ DATABASES = {
         'PORT': '5432',
         'DISABLE_SERVER_SIDE_CURSORS': True,
     }
+    #'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+       # 'NAME': BASE_DIR / 'db.sqlite3',
+   # }
 }
 
 
@@ -131,7 +135,7 @@ AUTHENTICATION_BACKENDS = (
  'django.contrib.auth.backends.ModelBackend',
  'allauth.account.auth_backends.AuthenticationBackend',
  )
-SITE_ID = 2
+SITE_ID = 1
 ACCOUNT_LOGOUT_ON_GET = True
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
