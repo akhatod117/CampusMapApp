@@ -20,7 +20,7 @@ from . import views
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="cav_map/index.html"), name='home'),
-    path('/accounts/login/', TemplateView.as_view(template_name="cav_map/index.html"), name='home1'),
+    path('/accounts/google/login/', TemplateView.as_view(template_name="cav_map/index.html"), name='home1'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html"), name='map'),
