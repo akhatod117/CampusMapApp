@@ -5,7 +5,7 @@ from .forms import ClassForm, ScheduleForm, StudentForm, ClassFormset
 
 def createSchedule(request):
     schedule_form = ScheduleForm()
-
+'''
 def create_class_model_form(request):
     template_name = 'cav_map/coordinateInputs.html'
     #heading_message = 'Model Formset Demo'
@@ -23,9 +23,9 @@ def create_class_model_form(request):
     return render(request, template_name, {
         'formset': formset,
     })
+'''
 
-
-def classInfo(request):
+'''def classInfo(request):
         i = 0
     #if request.method == 'POST':
         class_form = ClassForm(request.POST)
@@ -54,3 +54,4 @@ def classInfo(request):
 #def scheduleInfo(request):
 
     #schedule_form = 
+'''
