@@ -5,7 +5,7 @@ from django.views import generic
 from .models import ForumPost, ForumPostForm
 from django.http import HttpResponseRedirect
 from datetime import datetime
-from django.utils import timezone
+from pytz import timezone
 
 def forum_post_create_view(request):
     if request.method == 'POST':
