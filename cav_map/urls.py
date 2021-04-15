@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from . import views
-from .views import forumPostView
+
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="cav_map/index.html"), name='home'),
@@ -26,6 +26,6 @@ urlpatterns = [
     path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html"), name='map'),
     path('routemaker/', TemplateView.as_view(template_name="cav_map/coordinateInputs.html"), name='userInput'),
     path('routemaker/multiPath.html', TemplateView.as_view(template_name="cav_map/multiPath.html"), name='mapTest'),
-    path('forum/', forumPostView.as_view(), name='forum'),
+    path('forum/', views.forumPostView.as_view(), name='forum'),
     path('createPost/', views.forum_post_create_view, name='createPost')
 ]
