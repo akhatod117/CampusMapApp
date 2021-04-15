@@ -7,7 +7,6 @@ class ForumPostForm(forms.ModelForm):
         model = ForumPost
         fields = [
             'title_field',
-            'author',
             'post'
         ]
 

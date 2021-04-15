@@ -9,7 +9,7 @@ class ForumPost(models.Model):
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-
+    pub_date = models.DateTimeField('date published')
     #Text field - stores the text for the deep thought
     post = models.TextField(default="Post something...")
 
