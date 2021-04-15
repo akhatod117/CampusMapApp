@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.http import request
 from django import forms
 class ForumPostForm(forms.Form):
-    title_field = forms.CharField(label='title_field')
-    post = forms.CharField(label='post')
+    title_field = forms.CharField(label='Title: ')
+    post = forms.CharField(label='Post: ')
 
 class ForumPost(models.Model):
     #Title field - Limited to 100 characters
