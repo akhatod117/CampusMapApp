@@ -12,9 +12,10 @@ def forum_post_create_view(request):
         form = ForumPostForm(request.POST)
         if form.is_valid():
             f = ForumPost()
+            eastern = timezone('US/Eastern')
             f.title_field = form.cleaned_data['title_field']
             f.author = request.user
-            f.pub_date = datetime.now()
+            f.pub_date = datetime.now(eastern)
             f.post = form.cleaned_data['post']
             f.save()
             return HttpResponseRedirect('/forum/')
