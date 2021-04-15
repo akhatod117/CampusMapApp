@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .forms import ForumPostForm
 from django.views.generic import ListView
 from .models import ForumPost
-
+from django.http import HttpResponseRedirect
 
 
 def forum_post_create_view(request):
@@ -14,9 +14,10 @@ def forum_post_create_view(request):
         if form.is_valid():
             form.save()
             form = ForumPostForm()
-
-    context = {'form': form}
-    return render(request, "cav_map/forum.html", context)
+            return HttpResponseRedirect('/forum/')
+    else:
+        context = {'form': form}
+    return render(request, "cav_map/createPost.html", context)
 
 def social_view(request):
     my_context = {
