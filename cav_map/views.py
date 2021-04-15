@@ -16,7 +16,7 @@ def forum_post_create_view(request):
             form = ForumPostForm()
 
     context = {'form': form}
-    return render(request, "cav_map/createPost.html", context)
+    return render(request, "cav_map/forum.html", context)
 
 def social_view(request):
     my_context = {
