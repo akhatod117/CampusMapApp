@@ -14,7 +14,7 @@ def forum_post_create_view(request):
             f = ForumPost()
             f.title_field = form.cleaned_data['title_field']
             f.author = request.user
-            f.pub_date = datetime.datetime.utcnow()-datetime.timedelta(hours=3)
+            f.pub_date = datetime.datetime.utcnow()-datetime.timedelta(hours=4)
             f.post = form.cleaned_data['post']
             f.save()
             return HttpResponseRedirect('/forum/')
