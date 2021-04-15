@@ -12,7 +12,7 @@ def forum_post_create_view(request):
         form = ForumPostForm(request.POST)
         if form.is_valid():
             f = ForumPost()
-            eastern = timezone('US/Eastern')
+            eastern = timezone('EST')
             f.title_field = form.cleaned_data['title_field']
             f.author = request.user
             f.pub_date = datetime.now(eastern)
