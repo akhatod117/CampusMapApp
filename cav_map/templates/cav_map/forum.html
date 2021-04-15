@@ -34,11 +34,14 @@
 </head>
 <body>
 
-        <h1>Social Aspect</h1>
-        <h3>Available Users:</h3>
+        <h1>Forums</h1>
+        <h3>Posts:</h3>
         <ul>
-            {% for user in users %}
-                <li>{{user.get_username}}</li>
+            {% for post in object_list %}
+                <li>{{post.title_field}} by: {{post.author}} </li>
+                <p>
+                    {{post.post}}
+                </p>
             {% endfor %}
         </ul>
 </body>

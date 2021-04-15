@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .forms import ForumPostForm
+from django.views.generic import ListView
+from .models import ForumPost
 
 
 
@@ -22,3 +24,7 @@ def social_view(request):
         "test": "woah no way"
     }
     return render(request, "cav_map/forum.html", my_context)
+
+class forumPostView(ListView):
+    queryset = ForumPost.objects.all()
+    template_name = 'cav_map/forum.html'
