@@ -41,7 +41,9 @@
         <h3>Posts:</h3>
         <ul>
             {% for post in ps %}
-                <li>{{post.title_field}} by: {{post.author}} </li>
+                <li>{{post.title_field}} </li> 
+        </br>
+                <p>by: {{post.author}} </p>
                 <p>
                     {{post.post}}</p>
                 </br>
