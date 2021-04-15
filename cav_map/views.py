@@ -31,5 +31,7 @@ def social_view(request):
     return render(request, "cav_map/forum.html", my_context)
 
 class forumPostView(ListView):
-    queryset = ForumPost.objects.all()
+    context_object_name = 'ps'
     template_name = 'cav_map/forum.html'
+    def get_queryset(self):
+        return ForumPost.objects.all().order_by('-pub_date')

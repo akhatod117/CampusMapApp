@@ -40,7 +40,7 @@
         <h1 style="text-align: center;">Forums</h1>
         <h3>Posts:</h3>
         <ul>
-            {% for post in object_list %}
+            {% for post in ps %}
                 <li>{{post.title_field}} by: {{post.author}} </li>
                 <p>
                     {{post.post}}
