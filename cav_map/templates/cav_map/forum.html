@@ -42,10 +42,12 @@
         <ul>
             {% for post in ps %}
                 <li style="font-weight: bold;">{{post.title_field}} </li> 
-                by: {{post.author}}
+                By: {{post.author}}
+                <br />
                 {{post.post}}
+                <br />
                 {{post.pub_date}}
-                
+                <br /> 
             {% endfor %}
         </ul>
 </body>
