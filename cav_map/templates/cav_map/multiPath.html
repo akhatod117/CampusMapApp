@@ -134,11 +134,29 @@
 
     <div style="background-image: url(https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif); background-repeat: no-repeat; background-position: center;" id='map' class='contain'></div>
     <script>
+        var csrftoken = $("[name=csrfmiddlewaretoken]").val();
 
           var inputs = [];
 
           var count = 1;
-          //const csrftoken = Cookies.get('csrftoken');
+
+          function getCookie(name) {
+          let cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+              const cookies = document.cookie.split(';');
+              for (let i = 0; i < cookies.length; i++) {
+                  const cookie = cookies[i].trim();
+                  // Does this cookie string begin with the name we want?
+                  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                  }
+              }
+          }
+          return cookieValue;
+      }
+     // const csrftoken = getCookie('csrftoken');
+         // const csrftoken = Cookies.get('csrftoken');
           for(count = 1; count<20; count++){
             //alert("count: " + count);
             var url = new URL(location.href).searchParams.get('class'+count);
@@ -152,6 +170,9 @@
               url:'/',
               type: 'POST',
               data: {'building': url},
+              headers:{
+        "X-CSRFToken": csrftoken
+    },
               success: function(response){},
               complete:function(){},
               error:function (xhr, textStatus, thrownError){}
@@ -294,4 +315,5 @@
   {% else %}
   <meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" />
 {% endif %}
+
 </html>
