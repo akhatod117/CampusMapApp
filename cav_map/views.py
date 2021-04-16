@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.shortcuts import render, redirect
 
 from .models import Class, ClassSchedule, Student
@@ -56,7 +55,6 @@ def create_class_model_form(request):
 
     #schedule_form = 
 '''
-=======
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -87,4 +85,3 @@ class forumPostView(generic.ListView):
     template_name = 'cav_map/forum.html'
     def get_queryset(self):
         return ForumPost.objects.all().order_by('-pub_date')
->>>>>>> rss6py-testing
