@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.contrib.auth.models import User
+from django.http import request
+from django import forms
 #from django.contrib
 
 class Student(models.Model):
@@ -25,15 +28,11 @@ class Class(models.Model):
     #schedule = models.ForeignKey(ClassSchedule, on_delete=models.CASCADE)
     className = models.CharField(max_length=122, default='New Class')
     building = models.CharField(max_length=500, default='Building') 
-    x = models.CharField(max_length= 100, default='0.0')
-    y = models.CharField(max_length=100, default='0.0')
 
     def __str__(self):
         return self.className
 
-from django.contrib.auth.models import User
-from django.http import request
-from django import forms
+
 class ForumPostForm(forms.Form):
     title_field = forms.CharField(label='Title')
     post = forms.CharField(label='Post')
