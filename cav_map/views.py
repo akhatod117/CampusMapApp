@@ -86,10 +86,11 @@ def create_class(request):
     if request.method  == 'POST':
         form = ClassForm(request.POST)
         if request.is_valid():
-            form.save()
-            new_class = Class.objects.get()
-            new_class.building = request.POST['building']
-            new_class.save()
+            c = Class()
+            c.building = request.POST['building']
+            #new_class = Class.objects.get()
+            
+            c.save()
     else:
         form = ClassForm()
     
