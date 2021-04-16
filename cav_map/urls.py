@@ -25,7 +25,7 @@ urlpatterns = [
     path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html"), name='map'),
     path('routemaker/', TemplateView.as_view(template_name="cav_map/coordinateInputs.html"), name='userInput'),
     #path('routemaker/multiPath', TemplateView.as_view(template_name="cav_map/multiPath.html"), name='mapTest'),
-    path('routemaker/multiPath.html', views.create_class, name='create_class'),
+    path('routemaker/multiPath.html', views.create_class, name='mapTest'),
     path('forum/', views.forumPostView.as_view(), name='forum'),
     path('createPost/', views.forum_post_create_view, name='createPost')
 ]
