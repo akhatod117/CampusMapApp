@@ -40,6 +40,7 @@
                 var message = document.getElementById('class1').value;
 
             }
+            function loadRoute(){}
     </script>
 </head>
     <body>
@@ -88,7 +89,12 @@
                 <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
             </nav>
         </div>-->
-      
+        <form action="{% url 'savedMap' %}" id="user-classes" method="GET" enctype="multipart/form-data">
+        <button type="submit" value="loadRoute" onclick="loadRoute()" >Load Saved Route</button> </form>
+
+        </br>
+      </br>
+      <p style="font-weight: bold;">Overwrite Saved Route </p>
         <form action="{% url 'mapTest' %}" id="user-classes" method="GET" enctype="multipart/form-data">
           
           <div id="classes">
@@ -105,7 +111,8 @@
             <button id="addClass">Add Another Stop</button>
             <button type="reset">Reset</button>
           </br>
-            <button type="submit" value="submit" onclick="showClass1()" >Generate Map</button>
+        </br>
+            <button type="submit" value="submit" onclick="showClass1()" >Save and Generate Map</button>
         </form>
         
 

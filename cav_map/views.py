@@ -65,6 +65,7 @@ import datetime
 from pytz import timezone
 import json
 
+
 def forum_post_create_view(request):
     if request.method == 'POST':
         form = ForumPostForm(request.POST)
@@ -96,7 +97,17 @@ def create_class(request):
             #new_class = Class.objects.get()
         r.save()
     return render(request, template)
-
+def create_class2(request):
+    entry = Route.objects.filter(user=request.user).first()
+    if entry:
+        context = {'urls': json.dumps(Route.objects.get(user=request.user).urls)}
+    else:
+        url = '/routemaker/'
+        resp_body = '<script>alert("No Saved Route Found!");\
+             window.location="%s"</script>' % url
+        return HttpResponse(resp_body)
+    template = 'cav_map/savedMP.html'
+    return render(request, template, context)
 class forumPostView(generic.ListView):
     context_object_name = 'ps'
     template_name = 'cav_map/forum.html'
