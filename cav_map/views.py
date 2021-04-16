@@ -82,9 +82,11 @@ def forum_post_create_view(request):
 
 def create_class(request):
     template = 'cav_map/multiPath.html'
-    
+    print("the number 9")
     if request.method  == 'POST':
+        
         form = ClassForm(request.POST)
+        print(form)
         if request.is_valid():
             c = Class()
             

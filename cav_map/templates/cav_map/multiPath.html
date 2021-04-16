@@ -134,7 +134,7 @@
 
     <div style="background-image: url(https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif); background-repeat: no-repeat; background-position: center;" id='map' class='contain'></div>
     <script>
-        var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+       // var csrftoken = $("[name=csrfmiddlewaretoken]").val();
 
           var inputs = [];
 
@@ -155,7 +155,7 @@
           }
           return cookieValue;
       }
-     // const csrftoken = getCookie('csrftoken');
+     const csrftoken = getCookie('csrftoken');
          // const csrftoken = Cookies.get('csrftoken');
           for(count = 1; count<20; count++){
             //alert("count: " + count);
@@ -165,7 +165,7 @@
                continue;
             }
             inputs.push(url);
-
+            
             $.ajax({
               url:'/',
               type: 'POST',
