@@ -90,6 +90,8 @@ def create_class(request):
             new_class = Class.objects.get()
             new_class.building = request.POST['building']
             new_class.save()
+    else:
+        form = ClassForm()
     
     return render(request, template, {'form' : form})
 
