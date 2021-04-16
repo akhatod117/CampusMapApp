@@ -166,18 +166,7 @@
             }
             inputs.push(url);
             
-            $.ajax({
-              url:'/',
-              type: 'POST',
-              data: {'building': url},
-              headers:{
-        "X-CSRFToken": csrftoken
-    },
-              success: function(response){},
-              complete:function(){},
-              error:function (xhr, textStatus, thrownError){}
 
-            });
           }
           //alert(inputs);
 
@@ -189,11 +178,22 @@
             console.log("apiUrl: " + apiUrl);
             urlstore.push(apiUrl);
           }
-
+          var js = JSON.stringify(urlstore)
           //has all the appropriate urls to perform the get request.
           //now need to loop through all urls to actually perform the get request and retrieve the coordinate values.
           //alert(urlstore);
+          $.ajax({
+              url:'',
+              type: 'POST',
+              data: {'urls': js},
+              headers:{
+        "X-CSRFToken": csrftoken
+    },
+              success: function(response){},
+              complete:function(){},
+              error:function (xhr, textStatus, thrownError){}
 
+            });
 
 
           var j = 0;

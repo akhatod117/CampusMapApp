@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 
-from .models import Class, ClassSchedule, Student
-from .forms import ClassForm, ScheduleForm, StudentForm, ClassFormset
+from .models import Route
 
-def createSchedule(request):
-    schedule_form = ScheduleForm()
+
+""" def createSchedule(request):
+    schedule_form = ScheduleForm() """
 '''
 def create_class_model_form(request):
     template_name = 'cav_map/coordinateInputs.html'
@@ -63,6 +63,7 @@ from .models import ForumPost, ForumPostForm
 from django.http import HttpResponseRedirect
 import datetime
 from pytz import timezone
+import json
 
 def forum_post_create_view(request):
     if request.method == 'POST':
@@ -82,23 +83,19 @@ def forum_post_create_view(request):
 
 def create_class(request):
     template = 'cav_map/multiPath.html'
-    print("the number 9")
     if request.method  == 'POST':
-        
-        form = ClassForm(request.POST)
-        print(form)
-        if request.is_valid():
-            c = Class()
-            
-            c.building = request.POST['building']
-            print(c.building)
+        request_getdata = request.POST.get("urls", "None")
+        lst = json.loads(request_getdata)
+        entry = Route.objects.filter(user=request.user).first()
+        if entry:
+            r = Route.objects.get(user=request.user)
+        else:
+            r = Route()
+            r.user = request.user
+        r.urls = lst
             #new_class = Class.objects.get()
-            
-            c.save()
-    else:
-        form = ClassForm()
-    
-    return render(request, template, {'form' : form})
+        r.save()
+    return render(request, template)
 
 class forumPostView(generic.ListView):
     context_object_name = 'ps'
