@@ -24,7 +24,7 @@ SECRET_KEY = '@f2&r1*2m^u!k^+&h%w&vmj9k&%4#@9_z+%s!7s2nd+5ar0v-!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['a01-cav-map.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['a01-cav-map.herokuapp.com','cavmap-personal-testing.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -79,6 +79,7 @@ WSGI_APPLICATION = 'cav_map.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dcpm0268oou4dj',
@@ -88,6 +89,19 @@ DATABASES = {
         'PORT': '5432',
         'DISABLE_SERVER_SIDE_CURSORS': True,
     }
+   #     'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': BASE_DIR / 'db.sqlite3',
+   #  }
+    #'default': {
+       # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       # 'NAME': 'dcpm0268oou4dj',
+        #'USER': 'drparvidhbftyl',
+        #'PASSWORD': '7971ec2da62bff09ec1c4bcdb5483a853b7d4e80f6f10ffd335fc6cffe084b95',
+        #'HOST': 'ec2-3-87-180-131.compute-1.amazonaws.com',
+       # 'PORT': '5432',
+      #  'DISABLE_SERVER_SIDE_CURSORS': True,
+    #}
+
 }
 
 
@@ -131,7 +145,7 @@ AUTHENTICATION_BACKENDS = (
  'django.contrib.auth.backends.ModelBackend',
  'allauth.account.auth_backends.AuthenticationBackend',
  )
-SITE_ID = 1
+SITE_ID = 2
 ACCOUNT_LOGOUT_ON_GET = True
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
