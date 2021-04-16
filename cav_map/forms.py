@@ -5,7 +5,7 @@ from django.forms import modelformset_factory
 class ClassForm(forms.ModelForm):
     class Meta:
         model = Class
-        fields = ['className', 'building',]
+        fields = [ 'building',]
 
 ClassFormset = modelformset_factory(
             Class,

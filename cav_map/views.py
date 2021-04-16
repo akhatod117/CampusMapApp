@@ -81,14 +81,16 @@ def forum_post_create_view(request):
     return render(request, "cav_map/createPost.html", context)
 
 def create_class(request):
-    template = 'cav_map/multiPath'
-    form = ClassForm(request.GET)
+    template = 'cav_map/multiPath.html'
+    
     if request.method  == 'POST':
-        new_class = Class.objects.get()
-        new_class.building = request.POST['building']
-        new_class.save()
-    if request.is_valid():
-        form.save()
+        form = ClassForm(request.POST)
+        if request.is_valid():
+            form.save()
+            new_class = Class.objects.get()
+            new_class.building = request.POST['building']
+            new_class.save()
+    
     return render(request, template, {'form' : form})
 
 class forumPostView(generic.ListView):
