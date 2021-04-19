@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 
-from .models import Class, ClassSchedule, Student
-from .forms import ClassForm, ScheduleForm, StudentForm, ClassFormset
+from .models import Route
 
-def createSchedule(request):
-    schedule_form = ScheduleForm()
+
+""" def createSchedule(request):
+    schedule_form = ScheduleForm() """
 '''
 def create_class_model_form(request):
     template_name = 'cav_map/coordinateInputs.html'
@@ -63,6 +63,8 @@ from .models import ForumPost, ForumPostForm
 from django.http import HttpResponseRedirect
 import datetime
 from pytz import timezone
+import json
+
 
 def forum_post_create_view(request):
     if request.method == 'POST':
@@ -80,6 +82,32 @@ def forum_post_create_view(request):
         context = {'form': form}
     return render(request, "cav_map/createPost.html", context)
 
+def create_class(request):
+    template = 'cav_map/multiPath.html'
+    if request.method  == 'POST':
+        request_getdata = request.POST.get("urls", "None")
+        lst = json.loads(request_getdata)
+        entry = Route.objects.filter(user=request.user).first()
+        if entry:
+            r = Route.objects.get(user=request.user)
+        else:
+            r = Route()
+            r.user = request.user
+        r.urls = lst
+            #new_class = Class.objects.get()
+        r.save()
+    return render(request, template)
+def create_class2(request):
+    entry = Route.objects.filter(user=request.user).first()
+    if entry:
+        context = {'urls': json.dumps(Route.objects.get(user=request.user).urls)}
+    else:
+        url = '/routemaker/'
+        resp_body = '<script>alert("No Saved Route Found!");\
+             window.location="%s"</script>' % url
+        return HttpResponse(resp_body)
+    template = 'cav_map/savedMP.html'
+    return render(request, template, context)
 class forumPostView(generic.ListView):
     context_object_name = 'ps'
     template_name = 'cav_map/forum.html'

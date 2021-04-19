@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load socialaccount %}
+{% if user.is_authenticated %}
 <html>
 
     <head>
@@ -107,4 +109,6 @@ function create_table(){
 }</script>
 
 
-   
+{% else %}
+<meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" />
+{% endif %}

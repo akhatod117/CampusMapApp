@@ -1,11 +1,11 @@
 from django import forms
-from .models import Class, Student,  ClassSchedule
+from .models import Route, Student,  ClassSchedule
 from django.forms import modelformset_factory
 
-class ClassForm(forms.ModelForm):
+""" class ClassForm(forms.ModelForm):
     class Meta:
         model = Class
-        fields = ['className', 'building',]
+        fields = [ 'building',]
 
 ClassFormset = modelformset_factory(
             Class,
@@ -17,8 +17,8 @@ ClassFormset = modelformset_factory(
 
             }
         )
-
-class StudentForm(forms.ModelForm):
+ """
+""" class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = ['name', ]
@@ -26,4 +26,4 @@ class StudentForm(forms.ModelForm):
 class ScheduleForm(forms.ModelForm):
     class Meta:
         model = ClassSchedule
-        fields = ['student']
+        fields = ['student'] """

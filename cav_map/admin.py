@@ -1,9 +1,7 @@
 from django.contrib import admin
-from .models import Class, ClassSchedule
+from .models import Route, ForumPost
 
-admin.site.register(Class)
+admin.site.register(Route)
 #admin.site.register(useradmin)
-
-from .models import ForumPost
 
 admin.site.register(ForumPost)
