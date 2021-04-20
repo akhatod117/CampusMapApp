@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load socialaccount %}
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 {% if user.is_authenticated %}
 <head>
     <meta charset="UTF-8">
     <title>CavMap - Route Maker</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/minty/bootstrap.min.css" rel="stylesheet">
+    <a class="navbar-brand" href="{% url 'home' %}" style="font-weight: bold;">CavMap</a>
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -28,7 +31,7 @@
         </div>
       </div>
      </nav>
-     <h1 style="text-align: center;">{{ user.username }}'s Route Input</h1>
+     <h1  class="animate__heartBeat" style="text-align: center;">{{ user.username }}'s Route Input</h1>
     <script>
             function showClass1(){
                 var message = document.getElementById('class1').value;
@@ -92,9 +95,9 @@
         
 
         <div class="fixed-bottom">
-            <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
-                <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
-            </nav>
+          <nav class="navbar navbar-dark justify-content-center bg-primary">
+              <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
+          </nav>
         </div>
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
