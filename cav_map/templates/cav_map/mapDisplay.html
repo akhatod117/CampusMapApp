@@ -16,6 +16,10 @@
 
 <!DOCTYPE html>
 {% load socialaccount %}
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 <html>
 {% if user.is_authenticated %}
 <head>
@@ -30,15 +34,14 @@ body { margin: 0; padding: 0; }
 </style>
 </head>
 <body>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/minty/bootstrap.min.css" rel="stylesheet">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarToggler">
-        <a class="navbar-brand" href="{% url 'home' %}">CavMap</a>
+        <a class="navbar-brand" href="{% url 'home' %}" style="font-weight: bold;">CavMap</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'map' %}">Map</a>
@@ -61,7 +64,7 @@ body { margin: 0; padding: 0; }
    </nav>
   </br>
 </br>
-<h1 style="text-align: center;">{{ user.username }}'s Map</h1>
+<h1  class="animate__heartBeat" style="text-align: center;">{{ user.username }}'s Map</h1>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 <div style="background-image: url(https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif); background-repeat: no-repeat; background-position: center;" id="map"></div>
@@ -96,7 +99,7 @@ map.on('load',  function() {
  
 </body>
 <div class="fixed-bottom">
-  <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
+  <nav class="navbar navbar-dark justify-content-center bg-primary">
       <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
   </nav>
 </div>
