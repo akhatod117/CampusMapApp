@@ -23,8 +23,8 @@ SECRET_KEY = '@f2&r1*2m^u!k^+&h%w&vmj9k&%4#@9_z+%s!7s2nd+5ar0v-!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['a01-cav-map.herokuapp.com','cavmap-personal-testing.herokuapp.com', '127.0.0.1']
+SECURE_SSL_REDIRECT = True
+ALLOWED_HOSTS = ['a01-cav-map.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'cav_map',
+    'djangosecure',
 ]
 
 MIDDLEWARE = [
