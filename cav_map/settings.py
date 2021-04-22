@@ -137,6 +137,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+#security settings
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 
 # Static files (CSS, JavaScript, Images)
