@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ['a01-cav-map.herokuapp.com','cavmap-personal-testing.herokuapp.
 #security settings
 SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 
 # Application definition
