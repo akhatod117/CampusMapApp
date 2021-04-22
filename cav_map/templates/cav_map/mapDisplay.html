@@ -78,7 +78,7 @@ body { margin: 0; padding: 0; }
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
-  //function mapInfo(position){
+  function mapInfo(position){
 	mapboxgl.accessToken = 'pk.eyJ1IjoiY2F2bWFwcCIsImEiOiJja21sMTQ2bGIwMzJqMnZuM2sxdmJyN3NxIn0.SmVfbpZ7nZF6HqbgiJSaog';
     var map = new mapboxgl.Map({
     container: 'map',
@@ -95,7 +95,7 @@ body { margin: 0; padding: 0; }
 
     map.on('load',  function() {
       directions.setOrigin([position.coords.longitude, position.coords.latitude]);
-    });//}
+    })}
 </script>
  
 </body>
