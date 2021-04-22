@@ -140,7 +140,7 @@ USE_TZ = True
 #security settings
 SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
+SECURE_HSTS_PRELOAD = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
