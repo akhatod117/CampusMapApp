@@ -26,6 +26,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['a01-cav-map.herokuapp.com','cavmap-personal-testing.herokuapp.com', '127.0.0.1']
 
+#security settings
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
 
 # Application definition
 

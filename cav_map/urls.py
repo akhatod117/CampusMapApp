@@ -20,7 +20,7 @@ from . import views
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="cav_map/index.html"), name='home'),
-    path('admin/', admin.site.urls),
+    path('totally_not_admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('map/', TemplateView.as_view(template_name="cav_map/mapDisplay.html"), name='map'),
     path('routemaker/', TemplateView.as_view(template_name="cav_map/coordinateInputs.html"), name='userInput'),
