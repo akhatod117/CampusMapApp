@@ -108,7 +108,7 @@ def create_class2(request):
         return HttpResponse(resp_body)
     template = 'cav_map/savedMP.html'
     return render(request, template, context)
-class forumPostView(generic.ListView):
+class forumPostView(generic.DetailView):
     context_object_name = 'ps'
     template_name = 'cav_map/forum.html'
     def get_queryset(self):
