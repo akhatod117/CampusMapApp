@@ -254,7 +254,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
             });
 
           //alert("current array: " + arrayOfCoordinates);
-
+            alert("destination: " + directions.getDestination);
 
           map.addControl(directions, 'top-left');
           map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('map')}));
@@ -275,7 +275,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
               map.resize();
               //map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('map')}));
               directions.setDestination(arrayOfCoordinates[arrayOfCoordinates.length-1]);
-              alert("destination: " + directions.destination);
+
 
           });
 
