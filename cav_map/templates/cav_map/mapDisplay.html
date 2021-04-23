@@ -98,7 +98,7 @@ body { margin: 0; padding: 0; }
           },
 					trackUserLocation: true
 		}));
-
+    map.resize();
     map.on('load',  function() {
       directions.setOrigin([position.coords.longitude, position.coords.latitude]);
     })}
