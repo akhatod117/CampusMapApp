@@ -271,6 +271,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
           arrayOfCoordinates.splice(0,0,originCoordinate);
           map.on('load',  function() {
               directions.setOrigin([position.coords.longitude, position.coords.latitude]);
+              directions.setDestination(arrayOfCoordinates[arrayOfCoordinates.length-1]);
               console.log("arrayOfCoordinates: " + arrayOfCoordinates);
               map.resize();
               //map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('map')}));
@@ -289,7 +290,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 
 
           });
-          directions.setDestination(arrayOfCoordinates[arrayOfCoordinates.length-1]);
+
 
         //in
 
