@@ -56,7 +56,7 @@ def create_class_model_form(request):
     #schedule_form = 
 '''
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from django.views import generic
 from .models import ForumPost, ForumPostForm
@@ -113,3 +113,4 @@ class forumPostView(generic.DetailView):
     template_name = 'cav_map/forum.html'
     def get_queryset(self):
         return ForumPost.objects.all().order_by('-pub_date')
+    

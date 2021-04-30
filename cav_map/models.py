@@ -47,5 +47,7 @@ class ForumPost(models.Model):
     #Text field - stores the text for the deep thought
     post = models.TextField(default="Post something...")
 
+    likes = models.ManyToManyField(User, related_name='forum_posts')
+
     def __str__(self):
         return self.title_field
