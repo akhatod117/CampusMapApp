@@ -10,7 +10,7 @@
   <body>
   {% if user.is_authenticated %}
   <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/minty/bootstrap.min.css" rel="stylesheet">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,9 @@
    <center><img style="height: 25%; width: 15%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
   </br>
 </br>
-  <h1  class="animate__heartBeat" style="text-align: center;">Welcome, {{ user.username }} !</h1>
+  <h1  class="animate__heartBeat" style="text-align: center; text-transform: capitalize;">Welcome to CavMap, {{ user.username }} !</h1>
+  <h6 style="text-align: center;"> Begin Searching For Your Next Destination(s) Using the Map or Route Maker. </h6>
+  <h6 style="text-align: center;"> Note: If You Are Experiencing Issues, Make Sure to Check That Your Location Services Are Enabled.</h6>
 </br>
 </br>
   <script>
@@ -91,7 +93,7 @@ if (navigator.geolocation) {
   
   
   <div class="fixed-bottom">
-    <nav class="navbar navbar-dark justify-content-center bg-primary">
+    <nav class="navbar navbar-dark justify-content-center bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
         <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
     </nav>
   </div>
@@ -110,6 +112,7 @@ if (navigator.geolocation) {
   <center><img style="height: 25%; width: 15%; padding-top: 5%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
   </br>
   <h1  class="animate__heartBeat" style="color: white; text-align:center;">CavMap</h1>
+  <h2 style="color: white; text-align:center;">Your Guide Around Grounds.</h2>
 </br>
   <center><a href="{% provider_login_url 'google' %}"><img style="width: auto; height: 5%;" src="https://www.drupal.org/files/issues/2020-01-26/google_logo.png"></a></center>
 

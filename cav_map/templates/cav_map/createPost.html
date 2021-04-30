@@ -5,12 +5,18 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 />
+<style>
+  form { 
+margin: 0 auto; 
+width:250px;
+}
+</style>
   {% if user.is_authenticated %}
 <head>
     <meta charset="UTF-8">
     <title>Create Post</title>
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/minty/bootstrap.min.css" rel="stylesheet">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -38,9 +44,11 @@
       </div>
      </nav>
 </head>
+
 <body>
 </br>
         <h1  class="animate__heartBeat" style="text-align: center;">Create a Post</h1>
+        <h6  style="text-align: center;">Share information about what is going on at specific places on or near Grounds!</h6>
 <!--         <form method="post"> {% csrf_token %}
             {{form.as_p}}
             <input type="submit" class="btn btn-primary" value="Submit" />
@@ -50,21 +58,21 @@
           <br>
           <div class="form-group">
             <label for="title_field">Title:</label>
-            <input class="form-control" name="title_field" id="title_field" style="width: 500px;" required placeholder="Enter Title">
+            <input class="form-control" name="title_field" id="title_field" style="text-align: center;" required placeholder="Enter Title">
           </div>
           <div class="form-group">
             <label for="post">Post:</label>
-            <textarea class="form-control" name="post" id="post" style="width: 500px;" required placeholder="Enter Post"> </textarea>
+            <textarea required class="form-control" name="post" id="post" style="text-align: center; height: 100px;" placeholder="Enter Post"> </textarea>
           </div>
 <!--           <h1><label for="title_field">Title:</h1> <br>
               <textarea name="title_field" id="title_field"  required placeholder="Enter Title" ></textarea></p>
           <h1><label for="post">Post:</h1> <br>
                 <textarea name="post" id="post" required placeholder="Enter Post" style="width: 500px; height: 100px;"></textarea></p> -->
-          <input type="submit" class="btn btn-primary"  value="Submit"> 
+          <input type="submit" class="btn btn-primary" style="background-color: orange ! important; border-color: hsl(240, 87%, 18%) ! important;" value="Submit"> 
       </form>
 </body>
 <div class="fixed-bottom">
-  <nav class="navbar navbar-dark justify-content-center bg-primary">
+  <nav class="navbar navbar-dark justify-content-center bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
       <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
   </nav>
 </div>

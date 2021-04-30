@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <title>CavMap - Route Maker</title>
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/minty/bootstrap.min.css" rel="stylesheet">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
       </div>
      </nav>
      <br/>
-     <h1 class="animate__heartBeat" style="text-align: center;">{{ user.username }}'s Route Input</h1>
+     <h1 class="animate__heartBeat" style="text-align: center; text-transform: capitalize;">{{ user.username }}'s Route Input</h1>
     <script>
             function showClass1(){
                 var message = document.getElementById('class1').value;
@@ -93,12 +93,18 @@
                 <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
             </nav>
         </div>-->
+        <style>
+  form { 
+margin: 0 auto; 
+width:250px;
+}
+</style>
         <form action="{% url 'savedMap' %}" id="user-classes" method="GET" enctype="multipart/form-data">
-        <button type="submit" value="loadRoute" onclick="loadRoute()" class="btn btn-primary" >Load Saved Route</button> </form>
+        <button type="submit" style="background-color: orange ! important; border-color: hsl(240, 87%, 18%) ! important;" value="loadRoute" onclick="loadRoute()" class="btn btn-primary" >Load Saved Map</button> </form>
 
         </br>
       </br>
-      <p style="font-weight: bold;" >Overwrite Saved Route </p>
+      <p style="font-weight: bold; text-align: center;" >Overwrite Saved Route </p>
         <form action="{% url 'mapTest' %}" id="user-classes" method="GET" enctype="multipart/form-data">
           
           <div id="classes">
@@ -112,16 +118,16 @@
         <!--{% csrf_token %}
         {{ form.className }}
         {{ form.building }}-->
-            <button id="addClass" class="btn btn-primary">Add Another Stop</button>
-            <button type="reset" class="btn btn-primary">Reset</button>
+            <button id="addClass" style="background-color: orange ! important; border-color: hsl(240, 87%, 18%) ! important;" class="btn btn-primary">Add Another Stop</button>
+            <button type="reset" style="background-color: orange ! important; border-color: hsl(240, 87%, 18%) ! important;" class="btn btn-primary">Reset</button>
           </br>
         </br>
-            <button type="submit" value="submit" onclick="showClass1()" class="btn btn-primary" >Save and Generate Map</button>
+            <button type="submit" style="background-color: orange ! important; border-color: hsl(240, 87%, 18%) ! important;" value="submit" onclick="showClass1()" class="btn btn-primary" >Save and Generate Map</button>
         </form>
         
 
         <div class="fixed-bottom">
-          <nav class="navbar navbar-dark justify-content-center bg-primary">
+          <nav class="navbar navbar-dark justify-content-center bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
               <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
           </nav>
         </div>
@@ -136,7 +142,7 @@ var i = $('#classes p').size() + 1;
 
 $('#addClass').live('click', function() {
 
-        $('<p><label for="classes">Stop Location <input type="text" id="class' + i +'"size="20" name="class' + i +'" value="" placeholder="Building Name" /></label> <a href="#" id="remClass">Remove</a></p>').appendTo(classDiv);
+        $('<p><label for="classes">Stop Location <input type="text" id="class' + i +'"size="20" name="class' + i +'" value="" placeholder="Building Name" /></label> <a href="#" id="remClass" style="color: orange ! important;">Remove</a></p>').appendTo(classDiv);
         i++;
         return false;
 });
