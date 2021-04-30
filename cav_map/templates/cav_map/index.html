@@ -48,7 +48,9 @@
    <center><img style="height: 25%; width: 15%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
   </br>
 </br>
-  <h1  class="animate__heartBeat" style="text-align: center;">Welcome, {{ user.username }} !</h1>
+  <h1  class="animate__heartBeat" style="text-align: center;">Welcome to CavMap, {{ user.username }} !</h1>
+  <h2 style="text-align: center;"> Begin Searching For Your Next Destination(s) Using the Map or Route Maker. </h2>
+  <h3 style="text-align: center;"> Note: If You Are Experiencing Issues, Make Sure to Check That Your Location Services Are Enabled.</h3>
 </br>
 </br>
   <script>
@@ -110,6 +112,7 @@ if (navigator.geolocation) {
   <center><img style="height: 25%; width: 15%; padding-top: 5%;" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Virginia_Cavaliers_sabre.svg/1200px-Virginia_Cavaliers_sabre.svg.png"></center>
   </br>
   <h1  class="animate__heartBeat" style="color: white; text-align:center;">CavMap</h1>
+  <h2 style="color: white; text-align:center;">Your Guide Around Grounds.</h2>
 </br>
   <center><a href="{% provider_login_url 'google' %}"><img style="width: auto; height: 5%;" src="https://www.drupal.org/files/issues/2020-01-26/google_logo.png"></a></center>
 
