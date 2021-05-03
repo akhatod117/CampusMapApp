@@ -1,30 +1,38 @@
 
 <!DOCTYPE html>
+{% load socialaccount %}
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 <html lang="en">
+  {% if user.is_authenticated %}
 <head>
     <meta charset="UTF-8">
-    <title>Social Aspect</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <title>Forum</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/minty/bootstrap.min.css" rel="stylesheet">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggler">
-          <a class="navbar-brand" href="https://a01-cav-map.herokuapp.com/">CavMap</a>
+          <a class="navbar-brand" href="{% url 'home' %}" style="font-weight: bold;">CavMap</a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="https://a01-cav-map.herokuapp.com/map/">Map</a>
+              <a class="nav-link" aria-current="page" href="{% url 'map' %}">Map</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://a01-cav-map.herokuapp.com/routemaker/">Route Maker</a>
+              <a class="nav-link" href="{% url 'userInput' %}">Route Maker</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="https://a01-cav-map.herokuapp.com/createPost/">Create Post</a>
+                <a class="nav-link active" href="{% url 'forum' %}">Forum</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://a01-cav-map.herokuapp.com/accounts/logout/">Logout</a>
+            <a class="nav-link" href="{% url 'createPost' %}">Create Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_logout'%}">Logout</a>
             </li>
           </ul>
         </div>
@@ -33,14 +41,28 @@
 
 </head>
 <body>
+</br>
+        <h1  class="animate__heartBeat" style="text-align: center;">Forums</h1>
+      </br>
+        {% for post in ps %}
+        <div class="card border-info mb-3" style= "max-width: 50rem; margin: auto; border-color: orange ! important;">
+          <div class="card-header">{{post.pub_date}}</div>
+          <div class="card-body">
+            <h4 class="text-primary" style="color: hsl(240, 87%, 18%) ! important;">{{post.title_field}}</h4>
+            <h5 class="card-title" style="text-transform: capitalize;">By: {{post.author}}</h5>
+            <p class="card-text">{{post.post}}</p>
+          </div>
+        </div>
+        </br>
+          {% endfor %}
 
-        <h1>Social Aspect</h1>
-        <h3>Available Users:</h3>
-        <ul>
-            {% for user in users %}
-                <li>{{user.get_username}}</li>
-            {% endfor %}
-        </ul>
-</body>
+<div class="fixed-bottom">
+  <nav class="navbar navbar-dark justify-content-center bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
+      <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
+  </nav>
+</div>
+{% else %}
+<meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" />
+{% endif %}
 </html>
 

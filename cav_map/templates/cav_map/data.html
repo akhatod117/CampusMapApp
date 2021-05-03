@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load socialaccount %}
+{% if user.is_authenticated %}
+<html>
+
+    <head>
+
+    </head>
+    <body>
+        {% for class in classSchedule %}
+            <h1>{{ class.name }}</h1>
+        {% endfor %}
+    </body>
+
+</html>
+<script>
+//    https://developer.mapquest.com/documentation/data-manager/tables/create-table/-->
+
+function create_table(){
+    clientId: "client_id";//ditto to below. Maybe the info on Heroku or mapquest about our user and pswrd
+    password: "client_password";//dont know wha to put here. maybe super user passwrod
+    table_name: "mqap.cav_map_table";//rename table from mqap.TABLENAME
+    //"friendlyName": "friendly_name";  //optional
+    //"notes": "notes",                 //optional
+    columns: [
+        {
+            name: "student_id",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class1",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class1_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class1_y",//latitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class2",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class2_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class2_y",//latitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class3",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class3_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class3_y",//latitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class4",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class4_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class4_y",//latitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class5",
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class5_x",//longitude
+            type: "string",
+            isPublic: false
+        },
+        {
+            name: "class5_y",//latitude
+            type: "string",
+            isPublic: false
+        },
+
+    ]
+    isPublic: false;
+}</script>
+
+
+{% else %}
+<meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" />
+{% endif %}

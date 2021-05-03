@@ -1,5 +1,7 @@
 from django.contrib import admin
+from .models import Route, ForumPost
 
-from .models import ForumPost
+admin.site.register(Route)
+#admin.site.register(useradmin)
 
 admin.site.register(ForumPost)

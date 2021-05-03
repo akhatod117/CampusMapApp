@@ -7,4 +7,5 @@ gunicorn
 django-heroku
 django-allauth
 whitenoise==5.2.0
+django-secure
 

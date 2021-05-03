@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load socialaccount %}
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+{% if user.is_authenticated %}
+<head>
+    <meta charset="UTF-8">
+    <title>CavMap - Route Maker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/minty/bootstrap.min.css" rel="stylesheet">
+    <a class="navbar-brand" href="{% url 'home' %}" style="font-weight: bold;">CavMap</a>
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <a class="navbar-brand" href="{% url 'home' %}">CavMap</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'map' %}">Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'routeMaker' %}">Route Maker</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+     </nav>
+     <h1  class="animate__heartBeat" style="text-align: center;">{{ user.username }}'s Route Input</h1>
+    <script>
+            function showClass1(){
+                var message = document.getElementById('class1').value;
+
+            }
+    </script>
+</head>
+    <body>
+      <style>
+        form { 
+      margin: 0 auto; 
+      width:250px;
+      }
+      </style>
+
+
+        <!--<form action="multiPath.html" id="user-classes" method="get">
+            <div>
+                <label for="class1">Class 1</label>
+                <input name="class1" id="class1">
+            </div>
+            <div>
+                <label for="class2">Class 2</label>
+                <input name="class2" id="class2">
+            </div>
+            <div>
+                <label for="class3">Class 3</label>
+                <input name="class3" id="class3">
+            </div>
+            <div>
+                <label for="class4">Class 4</label>
+                <input name="class4" id="class4">
+            </div>
+            <div>
+                <label for="class5">Class 5</label>
+                <input name="class5" id="class5">
+            </div>
+
+            <button type="reset">Reset</button>
+            <button type="submit" value="submit" onclick="showClass1()" >Generate Map</button>
+        </form>
+        
+        <div class="fixed-bottom">
+            <nav class="navbar navbar-dark justify-content-center" style="background-color: #212529;">
+                <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
+            </nav>
+        </div>-->
+
+        <form action="{% url 'add_schedule' %}" id="user-classes" method="post" enctype="multipart/form-data">
+          
+          <div id="schedule">
+            <p>
+                {% csrf_token %}
+                {{ form.className }}
+                {{ form.building }}
+                <label for="schedule"> Stop Location  <input type="text" id="class1" size="20" name="class1" value="" placeholder="Building Name" /></label>
+            </p>
+        </div>
+        <!--{% csrf_token %}
+        {{ form.className }}
+        {{ form.building }}-->
+            <button id="addClass">Add Another Stop</button>
+            <button type="reset">Reset</button>
+          </br>
+            <button type="submit" value="submit" onclick="showClass1()" >Generate Map</button>
+        </form>
+        
+
+        <div class="fixed-bottom">
+          <nav class="navbar navbar-dark justify-content-center bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
+              <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
+          </nav>
+        </div>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
+
+    </body>
+    {% else %}
+    <meta http-equiv="refresh" content="0;url=https://a01-cav-map.herokuapp.com/" />
+  {% endif %}
+</html>
