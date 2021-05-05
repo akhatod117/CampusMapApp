@@ -214,7 +214,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
                const response = await fetch(urlstore[j]);
                const data = await response.json();
                //alert(data.length);
-               if(data === null) {
+               if(data.features[0].geometry.coordinates === 'undefined') {
                   alert("One or more of the destinations you've entered may have been misspelled or do not exist. Please try again by clicking 'Route Maker'!");
                }
                //alert(data.features[0]);
@@ -270,9 +270,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
           var originCoordinate = [position.coords.longitude, position.coords.latitude];
           arrayOfCoordinates.splice(0,0,originCoordinate);
           map.on('load',  function() {
-              if(arrayOfCoordinates.length === 0){
-                alert("One or more of the destinations you've entered may have been misspelled or do not exist. Please try again by clicking 'Route Maker'!");
-              }
+              //if(arrayOfCoordinates.length === 0){
+               // alert("One or more of the destinations you've entered may have been misspelled or do not exist. Please try again by clicking 'Route Maker'!");
+              //}
               directions.setOrigin([position.coords.longitude, position.coords.latitude]);
               console.log("arrayOfCoordinates: " + arrayOfCoordinates);
 
