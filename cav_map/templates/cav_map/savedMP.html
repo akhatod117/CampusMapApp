@@ -120,12 +120,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
        </nav>
       </br>
     </br>
-    <h1  class="animate__heartBeat" style="text-align: center;">{{ user.username }}'s Generated Route</h1>
-
+    <h1  class="animate__heartBeat" style="text-align: center; text-transform: capitalize;">{{ user.username }}'s Generated Route</h1>
+    <div align="center">
+      <h5>Note that the directions provided will navigate you toward the first location you have selected. Once you've reached that destination, it should provide navigation to the next waypoint and so on.</h5>
+    </div>
+  </br>
+</br>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin: 0; padding: 0; }
-        #map { position: absolute; top: 25%; bottom: 25%; width: 50%; height: 50%; left: 25%; }
+        #map { position: absolute; top: 30%; bottom: 25%; width: 50%; height: 50%; left: 25%; }
     </style>
   </head>
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
@@ -170,7 +174,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
             for(j = 0; j<urlstore.length; j++){
                const response = await fetch(urlstore[j]);
                const data = await response.json();
-               //alert(data.features[0]);
                let coordinate = data.features[0].geometry.coordinates;
                console.log("coordinate: " + coordinate);
               // console.log("coordinate[0]: " + coordinate[0]);
@@ -205,12 +208,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
                 accessToken: mapboxgl.accessToken,
                 placeholderDestination: "Rotunda",
                 alternatives: true,
-                profile: 'mapbox/driving'
+                profile: 'mapbox/driving',
                 //proximity: [38.033554,-78.507980]
+                interactive: false
 
             });
 
           map.addControl(directions, 'top-left');
+          map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('map')}));
+            map.addControl(new mapboxgl.GeolocateControl({
+              positionOptions: {
+              enableHighAccuracy: true
+              },
+                        trackUserLocation: true
+            }));
+          map.resize();
 
           var originCoordinate = [position.coords.longitude, position.coords.latitude];
           arrayOfCoordinates.splice(0,0,originCoordinate);
@@ -266,6 +278,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
       </script>
 
 <div class="fixed-bottom">
+  <div align="center">
+    <h6>
+      If the map has been loading for a while, you may have misspelled the destinations or provided a place that does not exist.
+      Click 'Route Maker' to try again!
+    </h6>
+  </div>
   <nav class="navbar navbar-dark justify-content-center bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
       <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
   </nav>
