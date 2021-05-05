@@ -133,7 +133,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 
 
 
-
+      <div align="center">
+          <h5>Note that the directions provided will navigate you toward the first location you have selected. Once you've reached that destination, it should provide navigation to the next waypoint and so on.</h5>
+        </div>
 
     <div style="background-image: url(https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif); background-repeat: no-repeat; background-position: center;" id='map' class='contain'></div>
     <script>
@@ -213,11 +215,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
             for(j = 0; j<urlstore.length; j++){
                const response = await fetch(urlstore[j]);
                const data = await response.json();
-               if(data) {
-                  continue;
-               }else{
-                alert("One or more of the destinations you've entered may have been misspelled or do not exist. Please try again by clicking 'Route Maker'!");
-               }
                //alert(data.features[0]);
                let coordinate = data.features[0].geometry.coordinates;
                console.log("coordinate: " + coordinate);
@@ -253,8 +250,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
                 accessToken: mapboxgl.accessToken,
                 placeholderDestination: "Rotunda",
                 alternatives: true,
-                profile: 'mapbox/driving'
+                profile: 'mapbox/driving',
                 //proximity: [38.033554,-78.507980]
+                interactive: false
 
             });
 
@@ -271,6 +269,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
           var originCoordinate = [position.coords.longitude, position.coords.latitude];
           arrayOfCoordinates.splice(0,0,originCoordinate);
           map.on('load',  function() {
+              //if(arrayOfCoordinates.length === 0){
+               // alert("One or more of the destinations you've entered may have been misspelled or do not exist. Please try again by clicking 'Route Maker'!");
+              //}
               directions.setOrigin([position.coords.longitude, position.coords.latitude]);
               console.log("arrayOfCoordinates: " + arrayOfCoordinates);
 
@@ -285,7 +286,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
               tempCoord.push(arrayOfCoordinates[h][0]);
               tempCoord.push(arrayOfCoordinates[h][1]);
               console.log("tempCoord: " + [tempCoord[0],tempCoord[1]]);
-              directions.addWaypoint(0, tempCoord);
+              directions.addWaypoint(h, tempCoord);
               new mapboxgl.Marker().setLngLat(tempCoord).addTo(map);
 
           }
@@ -322,7 +323,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
       </script>
 
 
+
 <div class="fixed-bottom">
+  <div align="center">
+    <h6>
+      If the map has been loading for a while, you may have misspelled the destinations or provided a place that does not exist.
+      Click 'Route Maker' to try again!
+    </h6>
+  </div>
+
   <nav class="navbar navbar-dark justify-content-center bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
       <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
   </nav>

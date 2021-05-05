@@ -204,8 +204,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
                 accessToken: mapboxgl.accessToken,
                 placeholderDestination: "Rotunda",
                 alternatives: true,
-                profile: 'mapbox/driving'
+                profile: 'mapbox/driving',
                 //proximity: [38.033554,-78.507980]
+                interactive: false
 
             });
 
@@ -273,6 +274,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
       </script>
 
 <div class="fixed-bottom">
+  <div align="center">
+    <h6>
+      If the map has been loading for a while, you may have misspelled the destinations or provided a place that does not exist.
+      Click 'Route Maker' to try again!
+    </h6>
+  </div>
   <nav class="navbar navbar-dark justify-content-center bg-primary" style="background-color: hsl(240, 87%, 18%) ! important;">
       <p class="text-center" style="color: white;">Copyright 2021. Author: Team A-01</p>
   </nav>
