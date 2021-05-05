@@ -7,7 +7,7 @@ The main page displays your username and provides the weather at your current lo
 
 The 'Map' Tab: Provides a generic map where your current location is already inputted, simply type in the destination and you can get directions from your location to that destination.
 
-The 'Route Maker' Tab: Allows students to put any location in Charlottesville that is visible on a map (i.e. Thornton Hall) and provide chronological routing from your current location to all locations inputted. It will display a map that has your current location marked as A and your final location marked as B. The intermediate locations are shown as waypoint markers. 
+The 'Route Maker' Tab: Allows students to put any location in Charlottesville that is visible on a map (i.e. Thornton Hall) and provide chronological routing from your current location to all locations inputted. It will display a map that has your current location marked as A and your final location marked as B. The intermediate locations are shown as waypoint markers. Students can also re-generate their last saved route with the click of a button. 
 
 The 'Forum' Tab: This is a place where all students can provide each other with updates about things happening on Grounds (i.e. if a certain road is closed or congested, or if a certain restaurant is closed, etc.)
 
