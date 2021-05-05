@@ -284,7 +284,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
               tempCoord.push(arrayOfCoordinates[h][0]);
               tempCoord.push(arrayOfCoordinates[h][1]);
               console.log("tempCoord: " + [tempCoord[0],tempCoord[1]]);
-              directions.addWaypoint(0, tempCoord);
+              directions.addWaypoint(h, tempCoord);
               new mapboxgl.Marker().setLngLat(tempCoord).addTo(map);
 
           }
