@@ -213,17 +213,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
             for(j = 0; j<urlstore.length; j++){
                const response = await fetch(urlstore[j]);
                const data = await response.json();
-
+               if(!data) {
+                  alert("One or more of the destinations you've entered may have been misspelled or do not exist. Please try again by clicking 'Route Maker'!");
+                  break;
+               }
                //alert(data.features[0]);
                let coordinate = data.features[0].geometry.coordinates;
                console.log("coordinate: " + coordinate);
               // console.log("coordinate[0]: " + coordinate[0]);
                arrayOfCoordinates.push(coordinate);
             }
-            alert(arrayCoordinates.length);
-            if(arrayOfCoordinates.length == 0){
-                alert("One or more of the places you've entered may have been misspelled or does not exist. Click 'Route Maker' to try again!")
-               }
+
 
             //has the all the waypoints, needs to include origin to first waypoint and last waypoint back to the origin.
             //console.log(apiString);
