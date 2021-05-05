@@ -14,3 +14,4 @@ The 'Forum' Tab: This is a place where all students can provide each other with 
 The 'Create Post' Tab: This is where students can create their post to publish on Forum. Their names are automatically registered as the author
 
 The 'Logout' Tab: Logs out user of the current app. Must log in again to access the application's features. 
+
