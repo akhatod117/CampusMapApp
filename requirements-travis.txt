@@ -3,5 +3,5 @@ gunicorn
 dj-database-url
 django-allauth
 selenium
-django-secure
+djangosecure
 psycopg2-binary
