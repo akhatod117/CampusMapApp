@@ -1,4 +1,4 @@
-# CavMap (Team A-01)
+# CavMap
 
 This application can map the various locations UVA students need to get to all their classes.
 There are 4 tabs, each providing a feature of our app.
